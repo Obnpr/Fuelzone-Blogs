@@ -231,9 +231,7 @@
     <Compile Include="pages\tutorials\valorant\Howtotouchgrass.aspx.designer.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\user_registration\Signin.aspx.designer.cs">
-      <DependentUpon>Signin.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="pages\user_registration\Signup.aspx.designer.cs" />
     <Compile Include="pages\user_registration\Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
