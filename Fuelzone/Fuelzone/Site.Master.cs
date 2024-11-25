@@ -14,7 +14,7 @@ namespace Fuelzone
             if (IsPostBack)
             {
                 // Set visibility based on authentication status
-                btnProfile.Visible = Context.User.Identity.IsAuthenticated;
+                Li2.Visible = Context.User.Identity.IsAuthenticated;
             }
         }
         protected void btnProfile_Click(object sender, EventArgs e)

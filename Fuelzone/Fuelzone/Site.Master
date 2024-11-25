@@ -52,11 +52,9 @@
                 <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
                 <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
                 <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
-                <asp:PlaceHolder ID="phAuthenticated" runat="server" >
-                <li class="nav-item">
+                <li class="nav-item" runat="server" id="Li2">
                     <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
                 </li>
-                </asp:PlaceHolder>
 
                 <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
                 <li class="nav-item" runat="server" id="signUpLink" visible='<%# !Context.User.Identity.IsAuthenticated %>'>

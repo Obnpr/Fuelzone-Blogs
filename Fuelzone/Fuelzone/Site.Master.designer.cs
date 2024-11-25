@@ -15,13 +15,13 @@ namespace Fuelzone
     {
 
         /// <summary>
-        /// phAuthenticated control.
+        /// Li2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phAuthenticated;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
 
         /// <summary>
         /// btnProfile control.
