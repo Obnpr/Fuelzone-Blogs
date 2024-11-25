@@ -1,20 +1,14 @@
-﻿<%@ Page Title="Sign Up" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="Fuelzone.pages.user_registration.Signup" %>
+﻿<%@ Page Title="Sign Up" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="sign_in.aspx.cs" Inherits="Fuelzone.pages.user_registration.signin.Sign_in" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-6 bg-light p-4 rounded shadow-sm">
-                <h2 class="text-center">Sign Up</h2>
+                <h2 class="text-center">Sign In</h2>
                 
-                <!-- Username Input -->
-                <div class="form-group mb-3">
-                    <asp:Label ID="lblUsername" runat="server" Text="Username" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-
                 <!-- Email Input -->
                 <div class="form-group mb-3">
-                    <asp:Label ID="lblEmail" runat="server" Text="Email" CssClass="form-label"></asp:Label>
+                    <asp:Label ID="lblEmail" runat="server" Text="Email Address" CssClass="form-label"></asp:Label>
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
 
@@ -24,9 +18,9 @@
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                 </div>
 
-                <!-- Sign-Up Button -->
+                <!-- Sign-In Button -->
                 <div class="form-group mb-3 text-center">
-                    <asp:Button ID="btnSignup" runat="server" Text="Sign Up" OnClick="btnSignup_Click" CssClass="btn btn-primary btn-block" />
+                    <asp:Button ID="btnSignin" runat="server" Text="Sign In" OnClick="btnSignin_Click" CssClass="btn btn-primary btn-block"></asp:Button>
                 </div>
 
                 <!-- Message Label -->

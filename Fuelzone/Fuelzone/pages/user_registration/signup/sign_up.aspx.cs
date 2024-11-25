@@ -9,9 +9,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Configuration;
 
-namespace Fuelzone.pages.user_registration
+namespace Fuelzone.pages.user_registration.signup
 {
-    public partial class Signup : System.Web.UI.Page
+    public partial class sign_up : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
