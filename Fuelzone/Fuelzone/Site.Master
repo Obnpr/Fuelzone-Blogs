@@ -52,19 +52,18 @@
                 <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
                 <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
                 <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
-                <li class="nav-item" runat="server" id="Li2">
-                    <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
-                </li>
+               <li class="nav-item" runat="server" id="Li2">
+    <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
+</li>
 
-                <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
-                <li class="nav-item" runat="server" id="signUpLink" visible='<%# !Context.User.Identity.IsAuthenticated %>'>
-                    <a class="nav-link" runat="server" href="~/pages/user_registration/signin/sign_in">Sign-In</a>
-                </li>
+<li class="nav-item" runat="server" id="signUpLink">
+    <a class="nav-link" runat="server" href="~/pages/user_registration/signin/sign_in">Sign-In</a>
+</li>
 
-                <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
-                <li class="nav-item" runat="server" id="Li1" visible='<%# !Context.User.Identity.IsAuthenticated %>'>
-                    <a class="nav-link" runat="server" href="~/pages/user_registration/signup/sign_up">Sign-Up</a>
-                </li>
+<li class="nav-item" runat="server" id="Li1">
+    <a class="nav-link" runat="server" href="~/pages/user_registration/signup/sign_up">Sign-Up</a>
+</li>
+
 
             </ul>
         </div>

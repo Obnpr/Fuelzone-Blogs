@@ -11,11 +11,12 @@ namespace Fuelzone
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                // Set visibility based on authentication status
-                Li2.Visible = Context.User.Identity.IsAuthenticated;
-            }
+            bool isAuthenticated = Session["IsAuthenticated"] != null && (bool)Session["IsAuthenticated"];
+
+            // Configura la visibilidad de los botones
+            Li2.Visible = isAuthenticated;         // Mostrar Sign-Out
+            signUpLink.Visible = !isAuthenticated; // Mostrar Sign-In
+            Li1.Visible = !isAuthenticated;        // Mostrar Sign-Up
         }
         protected void btnProfile_Click(object sender, EventArgs e)
         {
