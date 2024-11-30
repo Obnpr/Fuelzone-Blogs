@@ -51,28 +51,32 @@ namespace Fuelzone.pages.user_registration.signin
                     conn.Open();
 
                     // Check if the email and password match any record in the database
-                    string query = "SELECT Username FROM Account WHERE Email = @Email AND Password = @Password";
+                    string query = "SELECT Id, Username FROM Account WHERE Email = @Email AND Password = @Password";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            string username = result.ToString();
+                            if (reader.Read())
+                            {
+                                int userId = reader.GetInt32(0); // Get the Id column
+                                string username = reader.GetString(1); // Get the Username column
 
-                            // Set session values to indicate the user is logged in
-                            Session["IsAuthenticated"] = true;
-                            Session["Username"] = username;
+                                // Set session values to indicate the user is logged in
+                                Session["IsAuthenticated"] = true;
+                                Session["UserId"] = userId; // Store the UserId in the session
+                                Session["Username"] = username;
 
-                            // Redirect to the home page or another page after successful login
-                            Response.Redirect("~/");
-                        }
-                        else
-                        {
-                            lblMessage.Text = "Invalid email or password.";
-                            lblMessage.ForeColor = System.Drawing.Color.Red;
+                                // Redirect to the home page or another page after successful login
+                                Response.Redirect("~/");
+                            }
+                            else
+                            {
+                                lblMessage.Text = "Invalid email or password.";
+                                lblMessage.ForeColor = System.Drawing.Color.Red;
+                            }
                         }
                     }
                 }
