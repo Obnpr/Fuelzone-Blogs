@@ -8,6 +8,14 @@ namespace Fuelzone
 {
     public partial class Contact : System.Web.UI.Page
     {
+        // Moving the event registration to Page_Init
+        protected override void OnInit(EventArgs e)
+        {
+            this.Load += new EventHandler(Page_Load_Valorant);
+            base.OnInit(e);
+        }
+
+        // Standard Page Load for initial setup
         protected void Page_Load_Valorant(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,59 +30,79 @@ namespace Fuelzone
 
             if (!string.IsNullOrWhiteSpace(commentText))
             {
-                // Check if user is logged in by verifying Session variable
                 if (Session["UserId"] != null)
                 {
                     int userId = (int)Session["UserId"]; // Retrieve logged-in user's ID from the session
-
-                    // Save the comment to the database
-                    SaveCommentToDatabase(commentText, userId);
+                    int gameId = 1; // Static value of game_id to save in the database for each comment
+                    SaveCommentToDatabase(commentText, userId, gameId); // Save the comment to the database
                     commentInput.Text = ""; // Clear the input field
-                    LoadComments(); // Reload comments
+                    LoadComments(); // Reload comments to reflect the new addition
                 }
                 else
                 {
-                    // Handle scenario where user is not logged in
-                    // You could redirect them to the login page or show an appropriate message
-                    Response.Redirect("Home.aspx");
+                    lblMessage.Text = "You must be logged in to leave a comment."; // Show a message if user is not logged in
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
 
         private void LoadComments()
         {
-            // Retrieve comments from the database
-            var comments = GetCommentsFromDatabase();
+            int gameId = 1; // Only load comments for game_id = 1
+            var comments = GetCommentsFromDatabase(gameId);
 
-            // Bind comments to the Repeater
-            CommentsRepeater.DataSource = comments;
-            CommentsRepeater.DataBind();
+            if (comments.Count == 0)
+            {
+                System.Diagnostics.Debug.WriteLine("No comments found.");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(comments.Count + " comments found.");
+            }
+
+            // Make sure CommentsRepeater is correctly initialized
+            if (CommentsRepeater == null)
+            {
+                System.Diagnostics.Debug.WriteLine("CommentsRepeater is null.");
+            }
+            else
+            {
+                CommentsRepeater.DataSource = comments;
+                CommentsRepeater.DataBind();
+            }
         }
 
-        private void SaveCommentToDatabase(string commentText, int userId)
+        private void SaveCommentToDatabase(string commentText, int userId, int gameId)
         {
-            // Retrieve connection string from Web.config
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Comment (comment_text, user_fk_id) VALUES (@commentText, @userId)";
+                string query = "INSERT INTO Comment (comment_text, user_fk_id, game_id) VALUES (@commentText, @userId, @gameId)";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@commentText", commentText);
                     cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@gameId", gameId);
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        System.Diagnostics.Debug.WriteLine("Comment saved successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error saving comment: " + ex.Message);
+                    }
                 }
             }
         }
 
-        private List<Comment> GetCommentsFromDatabase()
+        private List<Comment> GetCommentsFromDatabase(int gameId)
         {
             var comments = new List<Comment>();
 
-            // Retrieve connection string from Web.config
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -82,10 +110,13 @@ namespace Fuelzone
                 string query = "SELECT C.comment_id, C.comment_text, A.username, C.user_posted_date " +
                                "FROM Comment C " +
                                "INNER JOIN Account A ON C.user_fk_id = A.Id " +
+                               "WHERE C.game_id = @gameId " +
                                "ORDER BY C.user_posted_date DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+                    cmd.Parameters.AddWithValue("@gameId", gameId);
+
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -93,6 +124,7 @@ namespace Fuelzone
                         {
                             comments.Add(new Comment
                             {
+                                CommentId = reader.GetInt32(reader.GetOrdinal("comment_id")),
                                 Username = reader["username"].ToString(),
                                 CommentText = reader["comment_text"].ToString(),
                                 Timestamp = Convert.ToDateTime(reader["user_posted_date"]).ToString("g")
@@ -106,9 +138,9 @@ namespace Fuelzone
         }
     }
 
-    // Comment class for displaying comments in the Repeater
     public class Comment
     {
+        public int CommentId { get; set; }
         public string Username { get; set; }
         public string CommentText { get; set; }
         public string Timestamp { get; set; }

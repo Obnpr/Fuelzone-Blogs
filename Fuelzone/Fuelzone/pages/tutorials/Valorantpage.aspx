@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Valorant Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Valorantpage.aspx.cs" Inherits="Fuelzone.Contact" %>
+﻿<%@ Page Title="Valorant Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="Valorantpage.aspx.cs" Inherits="Fuelzone.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
@@ -20,6 +20,7 @@
                         <asp:TextBox ID="commentInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Share your thoughts..."></asp:TextBox>
                     </div>
                     <asp:Button ID="SubmitCommentButton" runat="server" CssClass="btn btn-primary mt-2" Text="Post Comment" OnClick="SubmitCommentButton_Click" />
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger mt-2"></asp:Label> <!-- Added to display messages -->
                 </div>
             </div>
         </section>
@@ -39,7 +40,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted"><%# Eval("Timestamp") %></small>
                                         <button class="btn btn-outline-primary btn-sm" onclick="likeComment('<%# Eval("CommentId") %>')">
-                                            👍 Like (<span id="likeCount_<%# Eval("CommentId") %>"><%# Eval("LikeCount") %></span>)
+                                            👍 Like
                                         </button>
                                     </div>
                                 </div>
