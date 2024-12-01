@@ -125,8 +125,8 @@
     <Content Include="Home.aspx" />
     <Content Include="pages\Aboutus.aspx" />
     <Content Include="pages\Discussionmainpage.aspx" />
-    <Content Include="pages\discussions\Valorantpage.aspx" />
-    <Content Include="pages\discussions\valorant\Howtotouchgrass.aspx" />
+    <Content Include="pages\discussion\Valorantpage.aspx" />
+    <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
     <Content Include="pages\user_registration\signup\sign_up.aspx" />
@@ -218,18 +218,18 @@
     <Compile Include="pages\Discussionmainpage.aspx.designer.cs">
       <DependentUpon>Discussionmainpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\discussions\Valorantpage.aspx.cs">
+    <Compile Include="pages\discussion\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\discussions\Valorantpage.aspx.designer.cs">
+    <Compile Include="pages\discussion\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\discussions\valorant\Howtotouchgrass.aspx.cs">
+    <Compile Include="pages\discussion\valorant\Howtotouchgrass.aspx.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\discussions\valorant\Howtotouchgrass.aspx.designer.cs">
+    <Compile Include="pages\discussion\valorant\Howtotouchgrass.aspx.designer.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Tutorialmainpage.aspx.cs">
@@ -277,7 +277,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="pages\tutorials\valorant\" />
+    <Folder Include="pages\tutorial\valorant\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

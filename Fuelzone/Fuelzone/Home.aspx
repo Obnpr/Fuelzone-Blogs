@@ -30,7 +30,9 @@
                     <p><asp:Literal ID="RegisteredUserCountLiteral" runat="server" /></p>
                     <h2>Most discussed games</h2>
                     <!-- Shows current featured games -->
-                    <asp:Literal ID="MostDiscussedGameLiteral" runat="server" />
+                    <div class="row">
+                        <asp:Literal ID="MostDiscussedGameLiteral" runat="server" />
+                    </div>
                 </div>
             </aside>
         </div>

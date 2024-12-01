@@ -80,19 +80,17 @@ namespace Fuelzone
             var gameDetails = new Dictionary<int, (string GameName, string ImageUrl, string PageUrl)>
             {
                 { 1, ("Valorant", "/Assets/GameArtwork/Valorant.jpg", "/pages/tutorials/valorantpage") },
-                { 2, ("Minecraft", "/Assets/GameArtwork/Minecraft.jpg", "/pages/tutorials/minecraftpage") },
-                { 3, ("Apex Legends", "/Assets/GameArtwork/Apex.jpg", "/pages/tutorials/apexpage") },
-                { 4, ("CS:GO", "/Assets/GameArtwork/CSGO.jpg", "/pages/tutorials/csgopage") },
-                { 5, ("Fortnite", "/Assets/GameArtwork/Fortnite.jpg", "/pages/tutorials/fortnitepage") }
+                { 2, ("Fortnite", "/Assets/GameArtwork/Fortnite.jpg", "/pages/tutorials/fortnitepage") },
+                { 3, ("Call of Duty: Black Ops 6", "/Assets/GameArtwork/CODBlackOps6.jpg", "/pages/tutorials/codblackops6page") },
             };
 
-            string htmlContent = "";
+            string htmlContent = "<div class=\"row\">";
             foreach (var gameId in gameIds)
             {
                 if (gameDetails.ContainsKey(gameId))
                 {
                     var details = gameDetails[gameId];
-                    htmlContent += $"<div class=\"col-12 mb-3 text-center\">" +
+                    htmlContent += $"<div class=\"col-md-4 mb-3 text-center\">" +
                                    $"<a href=\"{details.PageUrl}\">" +
                                    $"<img src=\"{details.ImageUrl}\" class=\"img-fluid\" alt=\"{details.GameName}\" />" +
                                    "</a>" +
@@ -100,6 +98,7 @@ namespace Fuelzone
                                    "</div>";
                 }
             }
+            htmlContent += "</div>";
 
             MostDiscussedGameLiteral.Text = htmlContent;
         }

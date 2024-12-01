@@ -22,10 +22,10 @@
                             <h5>Call of Duty: Black Ops 6</h5>
                         </div>
                         <div class="col-sm-4 mb-3 text-center">
-                            <a href="/pages/tutorials/Destiny2page">
-                                <img src="/Assets/GameArtwork/Destiny2.jpg" class="img-fluid" alt="Destiny 2" />
+                            <a href="/pages/tutorials/Fortnitepage">
+                                <img src="/Assets/GameArtwork/Fortnite.jpg" class="img-fluid" alt="Fortnite" />
                             </a>
-                            <h5>Destiny 2</h5>
+                            <h5>Fortnite</h5>
                         </div>
                         <div class="col-sm-4 mb-3 text-center">
                             <a href="/pages/tutorials/Valorantpage">
