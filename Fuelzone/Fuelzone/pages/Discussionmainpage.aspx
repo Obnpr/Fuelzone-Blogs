@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tutorialspage.aspx.cs" Inherits="Fuelzone.Contact" %>
+﻿<%@ Page Title="Discussions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Discussionmainpage.aspx.cs" Inherits="Fuelzone.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
@@ -59,10 +59,10 @@
             <!-- Featured Game Tut. -->
             <aside class="col-md-4">
                 <div class="bg-secondary text-white p-4">
-                    <h4>Featured Tutorials</h4>
+                    <h4>Most Talked Discussions</h4>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="/Tutorials/Featured1" class="text-white">Featured Game Tutorial 1</a>
+                            <a href="/Tutorials/Featured1" class="text-white">Valorant</a>
                         </li>
                         <li>
                             <a href="/Tutorials/Featured2" class="text-white">Featured Game Tutorial 2</a>

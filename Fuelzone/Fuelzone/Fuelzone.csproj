@@ -124,9 +124,10 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="pages\Aboutus.aspx" />
-    <Content Include="pages\Tutorialspage.aspx" />
-    <Content Include="pages\tutorials\Valorantpage.aspx" />
-    <Content Include="pages\tutorials\valorant\Howtotouchgrass.aspx" />
+    <Content Include="pages\Discussionmainpage.aspx" />
+    <Content Include="pages\discussions\Valorantpage.aspx" />
+    <Content Include="pages\discussions\valorant\Howtotouchgrass.aspx" />
+    <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
     <Content Include="pages\user_registration\signup\sign_up.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -210,26 +211,33 @@
     <Compile Include="pages\Aboutus.aspx.designer.cs">
       <DependentUpon>Aboutus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Tutorialspage.aspx.cs">
-      <DependentUpon>Tutorialspage.aspx</DependentUpon>
+    <Compile Include="pages\Discussionmainpage.aspx.cs">
+      <DependentUpon>Discussionmainpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Tutorialspage.aspx.designer.cs">
-      <DependentUpon>Tutorialspage.aspx</DependentUpon>
+    <Compile Include="pages\Discussionmainpage.aspx.designer.cs">
+      <DependentUpon>Discussionmainpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\tutorials\Valorantpage.aspx.cs">
+    <Compile Include="pages\discussions\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\tutorials\Valorantpage.aspx.designer.cs">
+    <Compile Include="pages\discussions\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\tutorials\valorant\Howtotouchgrass.aspx.cs">
+    <Compile Include="pages\discussions\valorant\Howtotouchgrass.aspx.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\tutorials\valorant\Howtotouchgrass.aspx.designer.cs">
+    <Compile Include="pages\discussions\valorant\Howtotouchgrass.aspx.designer.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Tutorialmainpage.aspx.cs">
+      <DependentUpon>Tutorialmainpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Tutorialmainpage.aspx.designer.cs">
+      <DependentUpon>Tutorialmainpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\user_registration\signin\sign_in.aspx.cs">
       <DependentUpon>sign_in.aspx</DependentUpon>
@@ -268,7 +276,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="pages\tutorials\valorant\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />

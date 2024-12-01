@@ -48,7 +48,8 @@
         <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Tutorialspage">Tutorials</a></li>
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Tutorialmainpage">Tutorials</a></li>
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Discussionmainpage">Discussions</a></li>
                 <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
                 <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
                 <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->

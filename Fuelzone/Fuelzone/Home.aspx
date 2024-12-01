@@ -17,40 +17,22 @@
             <!-- Articles Section (Main Area) -->
             <section class="col-md-8">
                 <div class="bg-secondary text-white p-4">
-                    <h2>Artículos recomendados, guías, etc.</h2>
-                    <p>Here you could have guides, articles, or general information about the services or topics related to your site.</p>
+                    <h2>What we provide?</h2>
+                    <p>We provide high quality tutorial guides, a very in-depth discussions, and more to come!</p>
                     <p>
                         <a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
                     </p>
                 </div>
             </section>
-
             <!-- Sidebar Section (Featured Posts and Trending Games) -->
-<aside class="col-md-4">
-    <div class="bg-secondary text-white p-4">
-        <p>Total registered members: 0</p>
-        <h2>Articulo más destacado</h2>
-        <h2>Juego más destacado</h2>
-
-        <!-- Shows current featured games -->
-        <div class="row">
-            <div class="col-sm-6 mb-3 text-center">
-                <a href="/pages/tutorials/valorantpage">
-                    <img src="/Assets/GameArtwork/Valorant.jpg" class="img-fluid" alt="Valorant" />
-                </a>
-                <h5>Valorant</h5>
-            </div>
-            <div class="col-sm-6 mb-3 text-center">
-                <a href="/pages/tutorials/valorantpage">
-                    <img src="/Assets/GameArtwork/Valorant.jpg" class="img-fluid" alt="Valorant" />
-                </a>
-                <h5>Valorant</h5>
-            </div>
-
-        </div>
-    </div>
-</aside>
-
+            <aside class="col-md-4">
+                <div class="bg-secondary text-white p-4">
+                    <p><asp:Literal ID="RegisteredUserCountLiteral" runat="server" /></p>
+                    <h2>Most discussed games</h2>
+                    <!-- Shows current featured games -->
+                    <asp:Literal ID="MostDiscussedGameLiteral" runat="server" />
+                </div>
+            </aside>
         </div>
     </main>
 </asp:Content>
