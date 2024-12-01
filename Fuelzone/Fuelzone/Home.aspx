@@ -33,13 +33,31 @@
     </p>
 </div>
 
-                <!-- Top Comments Section -->
-                <div class="bg-secondary text-white p-4 mt-4">
-                    <h2>Top Comments</h2>
-                    <div>
-                        <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
-                    </div>
-                </div>
+        <div class="row mt-4">
+    <!-- Top Comments Section -->
+    <div class="col-md-6">
+        <div class="bg-secondary text-white p-4">
+            <h2>Top Comments</h2>
+            <div>
+                <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Tutorials Section -->
+    <div class="col-md-6">
+        <div class="bg-secondary text-white p-4">
+            <h2>Top Tutorials</h2>
+            <div id="topTutorialsContainer" runat="server">
+                <!-- Los tutoriales se generarán dinámicamente aquí -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
             </section>
 
             <!-- Sidebar Section (Featured Posts and Trending Games) -->
