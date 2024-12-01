@@ -23,7 +23,16 @@
                         <a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
                     </p>
                 </div>
+
+                <!-- Top Comments Section -->
+                <div class="bg-secondary text-white p-4 mt-4">
+                    <h2>Top Comments</h2>
+                    <div>
+                        <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
+                    </div>
+                </div>
             </section>
+
             <!-- Sidebar Section (Featured Posts and Trending Games) -->
             <aside class="col-md-4">
                 <div class="bg-secondary text-white p-4">
