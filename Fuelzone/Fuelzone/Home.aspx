@@ -19,10 +19,19 @@
                 <div class="bg-secondary text-white p-4">
                     <h2>What we provide?</h2>
                     <p>We provide high quality tutorial guides, a very in-depth discussions, and more to come!</p>
-                    <p>
-                        <a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                    </p>
+                   
                 </div>
+
+
+                            <!-- New User Sing uo box-->
+
+            <div id="newUserBox" class="bg-secondary text-white p-4" style="margin-top: 30px;" runat="server">
+    <h2>New User?</h2>
+    <p>Create an account to enjoy all the benefits of our platform, including discussions and tutorials!</p>
+    <p>
+        <a class="btn btn-primary" href="/pages/user_registration/signup/sign_up.aspx">Sign Up &raquo;</a>
+    </p>
+</div>
 
                 <!-- Top Comments Section -->
                 <div class="bg-secondary text-white p-4 mt-4">
