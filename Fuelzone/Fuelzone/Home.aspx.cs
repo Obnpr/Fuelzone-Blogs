@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Fuelzone
 {
@@ -17,6 +19,7 @@ namespace Fuelzone
                 LoadTopDiscussedGames();
                 LoadTopComments();
             }
+
         }
 
         private void LoadRegisteredUserCount()
@@ -102,25 +105,34 @@ namespace Fuelzone
 
         private void LoadTopComments()
         {
+            // Diccionario para mapear los nombres de los juegos
+            var gameDetails = new Dictionary<int, (string GameName, string Color, string PageUrl)>
+    {
+        { 1, ("Valorant", "red", "/pages/discussion/Valorantpage") },
+        { 2, ("Fortnite", "blue","/pages/tutorials/Fortnitepage") },
+        { 3, ("Call of Duty: Black Ops 6", "orange","/pages/tutorials/CODBlackOps6page") }
+    };
+
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             string query = @"
-                SELECT 
-                    C.comment_id AS CommentID, 
-                    A.username AS Username, 
-                    C.comment_text AS CommentText, 
-                    COUNT(CL.like_id) AS LikesCount
-                FROM 
-                    Comment C
-                INNER JOIN 
-                    Account A ON C.user_fk_id = A.Id
-                LEFT JOIN 
-                    CommentLikes CL ON C.comment_id = CL.comment_fk_id
-                GROUP BY 
-                    C.comment_id, A.username, C.comment_text
-                ORDER BY 
-                    LikesCount DESC
-                OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY";
+        SELECT 
+            C.comment_id AS CommentID, 
+            A.username AS Username, 
+            C.comment_text AS CommentText, 
+            C.game_id AS GameID, 
+            COUNT(CL.like_id) AS LikesCount
+        FROM 
+            Comment C
+        INNER JOIN 
+            Account A ON C.user_fk_id = A.Id
+        LEFT JOIN 
+            CommentLikes CL ON C.comment_id = CL.comment_fk_id
+        GROUP BY 
+            C.comment_id, A.username, C.comment_text, C.game_id
+        ORDER BY 
+            LikesCount DESC
+        OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -132,19 +144,29 @@ namespace Fuelzone
                         SqlDataReader reader = cmd.ExecuteReader();
                         StringBuilder html = new StringBuilder();
 
-                        html.Append("<ul>");
+                        html.Append("<div style='list-style-type:none; padding:0;'>");
                         while (reader.Read())
                         {
+                            int commentId = Convert.ToInt32(reader["CommentID"]);
                             string username = reader["Username"].ToString();
                             string commentText = reader["CommentText"].ToString();
                             string likesCount = reader["LikesCount"].ToString();
+                            int gameId = reader["GameID"] != DBNull.Value ? Convert.ToInt32(reader["GameID"]) : 0;
 
-                            html.Append("<li>");
-                            html.Append($"<p><strong>{username}</strong>: {commentText}</p>");
-                            html.Append($"<p>Likes: {likesCount}</p>");
-                            html.Append("</li>");
+                            // Obtén el nombre del juego del diccionario
+                            string gameName = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].GameName : "Unknown Game";
+                            string gameColor = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].Color : "gray";
+                            string gameUrl = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].PageUrl : "#";
+
+                            string gameLink = $"{gameUrl}?commentId={commentId}";
+
+                            html.Append("<div class='comment-box' style='border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;'>");
+                            html.Append($"<h5 style='font-size:20px; font-weight:bold;'><a href='{gameLink}' style='color:{gameColor}; text-decoration:none;'>{gameName}</a></h5>");
+                            html.Append($"<p style='margin:5px 0;'><strong>{username}</strong>: {commentText}</p>");
+                            html.Append($"<p style='color:white; margin:5px 0;'>👍Likes: {likesCount}</p>");
+                            html.Append("</div>");
                         }
-                        html.Append("</ul>");
+                        html.Append("</div>");
 
                         TopCommentsLiteral.Text = html.ToString();
                     }
@@ -155,5 +177,6 @@ namespace Fuelzone
                 }
             }
         }
+
     }
 }
