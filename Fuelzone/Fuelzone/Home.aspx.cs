@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Fuelzone
 {
@@ -17,6 +15,7 @@ namespace Fuelzone
             {
                 LoadRegisteredUserCount();
                 LoadTopDiscussedGames();
+                LoadTopComments();
             }
         }
 
@@ -75,8 +74,6 @@ namespace Fuelzone
 
         private void SetTopDiscussedGamesDetails(List<int> gameIds)
         {
-            // Dummy data mapping for demonstration purposes
-            // Ideally, you would fetch this information from a database table containing game details
             var gameDetails = new Dictionary<int, (string GameName, string ImageUrl, string PageUrl)>
             {
                 { 1, ("Valorant", "/Assets/GameArtwork/Valorant.jpg", "/pages/tutorials/valorantpage") },
@@ -101,6 +98,62 @@ namespace Fuelzone
             htmlContent += "</div>";
 
             MostDiscussedGameLiteral.Text = htmlContent;
+        }
+
+        private void LoadTopComments()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
+
+            string query = @"
+                SELECT 
+                    C.comment_id AS CommentID, 
+                    A.username AS Username, 
+                    C.comment_text AS CommentText, 
+                    COUNT(CL.like_id) AS LikesCount
+                FROM 
+                    Comment C
+                INNER JOIN 
+                    Account A ON C.user_fk_id = A.Id
+                LEFT JOIN 
+                    CommentLikes CL ON C.comment_id = CL.comment_fk_id
+                GROUP BY 
+                    C.comment_id, A.username, C.comment_text
+                ORDER BY 
+                    LikesCount DESC
+                OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        StringBuilder html = new StringBuilder();
+
+                        html.Append("<ul>");
+                        while (reader.Read())
+                        {
+                            string username = reader["Username"].ToString();
+                            string commentText = reader["CommentText"].ToString();
+                            string likesCount = reader["LikesCount"].ToString();
+
+                            html.Append("<li>");
+                            html.Append($"<p><strong>{username}</strong>: {commentText}</p>");
+                            html.Append($"<p>Likes: {likesCount}</p>");
+                            html.Append("</li>");
+                        }
+                        html.Append("</ul>");
+
+                        TopCommentsLiteral.Text = html.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error loading top comments: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
