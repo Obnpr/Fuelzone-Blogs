@@ -125,6 +125,7 @@
     <Content Include="Home.aspx" />
     <Content Include="pages\Aboutus.aspx" />
     <Content Include="pages\Discussionmainpage.aspx" />
+    <Content Include="pages\discussion\Fortnitepage.aspx" />
     <Content Include="pages\discussion\Valorantpage.aspx" />
     <Content Include="pages\tutorial\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="pages\Discussionmainpage.aspx.designer.cs">
       <DependentUpon>Discussionmainpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\discussion\Fortnitepage.aspx.cs">
+      <DependentUpon>Fortnitepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\discussion\Fortnitepage.aspx.designer.cs">
+      <DependentUpon>Fortnitepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\discussion\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>

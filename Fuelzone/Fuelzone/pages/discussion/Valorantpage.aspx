@@ -31,24 +31,33 @@
                 <h4>Comments</h4>
                 <div id="commentsSection">
 
-                    <!-- Example Template for Comments -->
-                    <asp:Repeater ID="CommentsRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%# Eval("Username") %></h5>
-                                    <p class="card-text"><%# Eval("CommentText") %></p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                <asp:Repeater ID="CommentsRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="d-flex align-items-start mb-3" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px;">
+                            <!-- Profile Image -->
+                            <img src='<%# ResolveUrl(((bool)Eval("IsAdmin")) ? "~/Assets/user/admin_user_image.png" : "~/Assets/user/default_user_image.png") %>' 
+                                 alt="Profile IMG" class="rounded-circle" style="width: 64px; height: 64px;">
+
+                            <!-- Comment Content -->
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- Username and timestamp -->
+                                    <div>
+                                        <strong class="text-primary"><%# Eval("Username") %></strong> <br />
                                         <small class="text-muted"><%# Eval("Timestamp") %></small>
-                                        <asp:Button ID="LikeButton" runat="server" CssClass="btn btn-outline-primary btn-sm" 
-                                                    Text='<%# "👍 Like (" + Eval("LikeCount") + ")" %>' 
-                                                    CommandArgument='<%# Eval("CommentId") %>' 
-                                                    OnClick="LikeButton_Click" />
                                     </div>
+                                    <!-- Like button -->
+                                    <asp:Button ID="LikeButton" runat="server" CssClass="btn btn-outline-primary btn-sm" 
+                                                Text='<%# "👍 Like (" + Eval("LikeCount") + ")" %>' 
+                                                CommandArgument='<%# Eval("CommentId") %>' 
+                                                OnClick="LikeButton_Click" />
                                 </div>
+                                <!-- Comment Text -->
+                                <p class="mt-2 mb-0"><%# Eval("CommentText") %></p>
                             </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
 
                 </div>
             </div>
