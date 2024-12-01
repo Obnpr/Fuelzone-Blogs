@@ -13,5 +13,32 @@ namespace Fuelzone.pages
 
     public partial class Tutorialmainpage
     {
+
+        /// <summary>
+        /// featuredGameLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor featuredGameLink;
+
+        /// <summary>
+        /// featuredGameImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage featuredGameImage;
+
+        /// <summary>
+        /// featuredGameTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl featuredGameTitle;
     }
 }
