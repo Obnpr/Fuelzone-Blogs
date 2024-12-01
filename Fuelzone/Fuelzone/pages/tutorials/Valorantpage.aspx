@@ -30,6 +30,7 @@
             <div class="col-12">
                 <h4>Comments</h4>
                 <div id="commentsSection">
+
                     <!-- Example Template for Comments -->
                     <asp:Repeater ID="CommentsRepeater" runat="server">
                         <ItemTemplate>
@@ -39,14 +40,16 @@
                                     <p class="card-text"><%# Eval("CommentText") %></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted"><%# Eval("Timestamp") %></small>
-                                        <button class="btn btn-outline-primary btn-sm" onclick="likeComment('<%# Eval("CommentId") %>')">
-                                            👍 Like
-                                        </button>
+                                        <asp:Button ID="LikeButton" runat="server" CssClass="btn btn-outline-primary btn-sm" 
+                                                    Text='<%# "👍 Like (" + Eval("LikeCount") + ")" %>' 
+                                                    CommandArgument='<%# Eval("CommentId") %>' 
+                                                    OnClick="LikeButton_Click" />
                                     </div>
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+
                 </div>
             </div>
         </section>
