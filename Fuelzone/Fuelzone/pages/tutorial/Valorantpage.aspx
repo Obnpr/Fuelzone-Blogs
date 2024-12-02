@@ -9,54 +9,38 @@
             </div>
         </section>
 
-        <!-- Tutorial List Section -->
         <div class="row mt-4">
-            <!-- Replace Images with Tutorial Cards -->
             <div class="col-12">
                 <div class="row">
-                    <!-- Tutorial Example 1 -->
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
                                 <h3 class="card-title">Basic Tips and Tricks</h3>
                                 <p class="card-text">
-                                    Learn the essential tips to improve your Valorant gameplay, including aiming techniques, map awareness, and agent abilities.
+                                    Get essential tips for improving your Valorant gameplay, covering aiming techniques, map awareness, and agent abilities.
                                 </p>
-                                <p class="card-text text-muted"><small>⏰ 5 minutes</small></p>
-                                <a href="/Webpages/ValorantTips" class="btn btn-primary">Read Tutorial</a>
+                                <img src="/Assets/Tutorial/Valorant/Basictipsandtricks/preview.jpg" alt="Basic Tips and Tricks" class="img-fluid mb-3" />
+                                <p class="card-text text-muted"><small>⏰ 13 minutes</small></p>
+                                <a href="/pages/tutorial/valorant/basictipsandtricks" class="btn btn-primary">Read Tutorial</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tutorial Example 2 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h3 class="card-title">Advanced Strategies</h3>
-                                <p class="card-text">
-                                    Take your Valorant skills to the next level with advanced team coordination, map control tactics, and proper agent utility use.
-                                </p>
-                                <p class="card-text text-muted"><small>⏰ 10 minutes</small></p>
-                                <a href="/Webpages/ValorantAdvanced" class="btn btn-primary">Read Tutorial</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tutorial Example 3 -->
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
                                 <h3 class="card-title">How to touch grass</h3>
                                 <p class="card-text">
-                                    Learn all about touching grass, it's benefits, diferent situations where you might need to touch some grass, and more.
+                                    Learn all about touching grass, its benefits, different situations where you might need to touch some grass, and more.
                                 </p>
+                                <img src="/Assets/Tutorial/Valorant/Howtotouchgrass/preview.jpg" alt="Hand touching grass image" class="img-fluid mb-3" />
                                 <p class="card-text text-muted"><small>⏰ 8 minutes</small></p>
-                                <a href="/pages/tutorial/valorant/Howtotouchgrass" class="btn btn-primary">Read Tutorial</a>
+                                <a href="/pages/tutorial/valorant/howtotouchgrass" class="btn btn-primary">Read Tutorial</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Add more tutorials as needed -->
+                    <!-- For more tut. post -->
                 </div>
             </div>
         </div>

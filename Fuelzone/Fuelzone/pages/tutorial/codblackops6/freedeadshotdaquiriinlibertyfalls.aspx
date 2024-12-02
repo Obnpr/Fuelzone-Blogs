@@ -1,15 +1,15 @@
-﻿<%@ Page Title="Valorant Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="howtotouchgrass.aspx.cs" Inherits="Fuelzone.Contact" %>
+﻿<%@ Page Title="Liberty Falls Easter Egg Guide" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="freedeadshotdaquiriinlibertyfalls.aspx.cs" Inherits="Fuelzone.pages.tutorial.codblackops6.freedeadshotdaquiriinlibertyfalls" %>
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
         
-        <!-- Title, Game, Author, and Additional Information -->
         <section class="row mb-4">
             <div class="col-12">
                 <div class="custom-bg text-white p-4">
-                    <h2>How to Touch Grass - Gamers most needed medicine!</h2>
+                    <h2>How to get a free Deadshot Daiquiri on Liberty Falls</h2>
                     <hr>
-                    <p><strong>Game:</strong> Valorant</p>
+                    <p><strong>Game:</strong> Call of Duty: Black Ops 6</p>
                     <p><strong>Author:</strong> Obed Negron</p>
                 </div>
             </div>
