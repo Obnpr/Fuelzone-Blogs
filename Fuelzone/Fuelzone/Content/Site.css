@@ -19,3 +19,80 @@ textarea {
         padding: 0;
     }
 }
+
+/* Unified Night Mode Styles */
+body.night-mode {
+    background-color: #181818 !important; /* Darker background for night mode */
+    color: #e0e0e0 !important; /* Light gray text for readability */
+}
+
+    /* Navbar styling for night mode */
+    body.night-mode .navbar {
+        background-color: #222 !important; /* Slightly darker navbar for contrast */
+        color: #e0e0e0 !important;
+    }
+
+    /* Container styling for night mode */
+    body.night-mode .container,
+    body.night-mode .body-content {
+        background-color: #2a2a2a !important; /* Medium dark gray for container areas */
+        color: #e0e0e0 !important; /* Light gray text for contrast */
+    }
+
+    /* Card and Section Backgrounds */
+    body.night-mode .card,
+    body.night-mode .section {
+        background-color: #2a2a2a !important;
+        border: 1px solid #333 !important; /* Add subtle borders to separate sections */
+    }
+
+    /* Link styles for night mode */
+    body.night-mode a {
+        color: #82aaff !important; /* Soft blue for links */
+    }
+
+        body.night-mode a:hover {
+            color: #bb86fc !important; /* Light purple for hover */
+        }
+
+    /* Button styles for night mode */
+    body.night-mode button,
+    body.night-mode .btn {
+        background-color: #333 !important; /* Dark button background */
+        color: #e0e0e0 !important; /* Light text */
+        border: 1px solid #444 !important; /* Border for buttons */
+    }
+
+    /* Input styles for night mode */
+    body.night-mode input,
+    body.night-mode select,
+    body.night-mode textarea {
+        background-color: #333 !important; /* Dark gray input background */
+        color: #e0e0e0 !important; /* Light text for input */
+        border: 1px solid #444 !important; /* Dark border */
+    }
+
+    /* Headings styles for night mode */
+    body.night-mode h1,
+    body.night-mode h2,
+    body.night-mode h3,
+    body.night-mode h4,
+    body.night-mode h5,
+    body.night-mode h6 {
+        color: #ffffff !important; /* Bright white headings to stand out */
+    }
+
+    /* Cards, widgets, and box shadows */
+    body.night-mode .card,
+    body.night-mode .widget,
+    body.night-mode .box {
+        background-color: #2a2a2a !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    }
+
+/* Responsive adjustments for night mode */
+@media screen and (min-width: 768px) {
+    body.night-mode .body-content {
+        padding: 15px;
+    }
+}

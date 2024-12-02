@@ -12,12 +12,159 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <!-- Stylesheets with Cache Busting -->
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/Site.css?v=2.2" rel="stylesheet" />
+    
+    <webopt:bundlereference runat="server" path="~/Content/css" />
 
+    <style>
+        /* CSS for the Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 25px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 19px;
+            width: 19px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(25px);
+        }
+
+        /* Styling for "Dark Mode" text and alignment */
+        .switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;  /* Space between "Dark Mode" text and switch */
+        }
+
+        .dark-mode-label {
+            font-size: 1rem;
+            color: #A9A9A9; /* Default color when dark mode is off */
+            margin: 0;  /* Ensure consistency with other nav items */
+        }
+
+        /* Override padding to align switch with other nav items */
+        .nav-item {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Make sure there is no extra margin or padding causing misalignment */
+        .switch-wrapper {
+            margin: 0;  /* Remove any margin to align correctly with navbar */
+            padding: 0; /* Ensure no extra padding */
+        }
+
+        /* General Dark Mode Styles for Consistency */
+        body.night-mode {
+            background-color: #121212; /* Dark background color for body */
+            color: #e0e0e0; /* Light gray text color for better readability */
+        }
+
+        /* Dark Mode Styles for Containers */
+        body.night-mode .container,
+        body.night-mode .body-content {
+            background-color: #1e1e1e; /* Dark background for content and body */
+            color: #e0e0e0; /* Light text for consistency */
+        }
+
+        /* Dark Mode Navbar and Links */
+        body.night-mode .navbar {
+            background-color: #333; /* Dark background for navbar */
+        }
+
+        body.night-mode a.nav-link {
+            color: #bb86fc; /* Link color in dark mode */
+        }
+
+        body.night-mode a.nav-link:hover {
+            color: #ff79c6; /* Brighter link color on hover in dark mode */
+        }
+
+        /* Button styles in Dark Mode */
+        body.night-mode button,
+        body.night-mode .btn {
+            background-color: #333; /* Dark button background */
+            color: #e0e0e0; /* Light text */
+            border: 1px solid #444; /* Button border for visibility */
+        }
+
+        /* Dark Mode styles for Comment Cards */
+        body.night-mode .card,
+        body.night-mode .d-flex.align-items-start.mb-3 {
+            background-color: #2c2c2c; /* Darker background for comment cards */
+            color: #e0e0e0; /* Light text color for comment cards */
+            border: 1px solid #444; /* Border for better visibility in dark mode */
+        }
+
+        body.night-mode .card-body,
+        body.night-mode .comment-text {
+            background-color: #2c2c2c; /* Darker background for comment body */
+            color: #e0e0e0; /* Light text for comments */
+        }
+
+        /* Input fields in Dark Mode */
+        body.night-mode input,
+        body.night-mode select,
+        body.night-mode textarea {
+            background-color: #2c2c2c; /* Darker background for inputs */
+            color: #e0e0e0; /* Light text color for inputs */
+            border: 1px solid #444; /* Border color for inputs */
+        }
+
+        /* Label for profile text (e.g., User or Admin) in Dark Mode */
+        body.night-mode .d-flex.flex-column.align-items-center small {
+            color: #e0e0e0; /* Light color for "User" or "Admin" text in dark mode */
+        }
+
+        /* Dark Mode styles for comment meta information */
+        body.night-mode .text-muted {
+            color: #b0b0b0; /* Slightly lighter color for timestamp or metadata */
+        }
+
+        /* Dark Mode styles for comment author */
+        body.night-mode .text-primary {
+            color: #bb86fc; /* Light purple color for author names in dark mode */
+        }
+    </style>
 </head>
 <body>
-    <form runat="server">
+    <form id="mainForm" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -36,46 +183,52 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+            <div class="container">
+                <img src="/Assets/fuelzonelogo.png" alt="Logo" runat="server" style="width: 55px; height: auto; margin-right: 10px" />
+                <a class="navbar-brand" runat="server" href="~/">Fuelzone</a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Tutorialmainpage">Tutorials</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Discussionmainpage">Discussions</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
+                        <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
+                        <!-- This button only appears if the user is NOT logged in -->
+                        <li class="nav-item" runat="server" id="Li2">
+                            <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
+                        </li>
+                        <li class="nav-item" runat="server" id="signUpLink">
+                            <a class="nav-link" runat="server" href="~/pages/user_registration/signin/sign_in">Sign-In</a>
+                        </li>
+                        <li class="nav-item" runat="server" id="Li1">
+                            <a class="nav-link sign-up-link" runat="server" href="~/pages/user_registration/signup/sign_up">Sign-Up</a>
+                        </li>
+                        <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
+                        <li class="nav-item">
+                            <!-- Toggle Switch for Dark Mode with Label -->
+                            <div class="switch-wrapper">
+                                <span class="dark-mode-label">Dark Mode</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="nightModeToggle" />
+                                    <span class="slider"></span>
+                        <li class="nav-item" runat="server" id="Prfle">
+                            <a class="nav-link" href="/pages/Profile/Profile.aspx">Profile</a>
+                        </li>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-    <div class="container">
-        <img src="/Assets/fuelzonelogo.png" alt="Logo" runat="server" style="width: 55px; height: auto; margin-right: 10px" />
-        <a class="navbar-brand" runat="server" href="~/">Fuelzone</a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Tutorialmainpage">Tutorials</a></li>
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Discussionmainpage">Discussions</a></li>
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
-                <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
-                <!-- Este boton solamente va a aparecer si el ususario NO esta Log-in -->
-               <li class="nav-item" runat="server" id="Li2">
-    <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
-</li>
-
-<li class="nav-item" runat="server" id="signUpLink">
-    <a class="nav-link" runat="server" href="~/pages/user_registration/signin/sign_in">Sign-In</a>
-</li>
-
-<li class="nav-item" runat="server" id="Li1">
-    <a class="nav-link" runat="server" href="~/pages/user_registration/signup/sign_up">Sign-Up</a>
-</li>
-                <li class="nav-item" runat="server" id="Prfle">
-    <a class="nav-link" href="/pages/Profile/Profile.aspx">Profile</a>
-</li>
-
-
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
+        <!-- Main Content Area -->
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -86,7 +239,51 @@
         </div>
     </form>
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+        <%: Scripts.Render("~/Scripts/bootstrap.js?v=2.2") %>
     </asp:PlaceHolder>
+
+    <!-- JavaScript for Dark Mode Persistence -->
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleSwitch = document.getElementById('nightModeToggle');
+            const darkModeLabel = document.querySelector('.dark-mode-label');
+
+            // Explicit color codes based on desired link colors
+            const defaultLabelColor = "#A9A9A9"; // Default color for "Dark Mode" label when dark mode is off
+            const darkModeLinkColor = "#bb86fc"; // The color of other nav links in dark mode
+
+            // Check if dark mode preference is saved in localStorage
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('night-mode');
+                toggleSwitch.checked = true; // Set the switch to the "on" position if dark mode is enabled
+                darkModeLabel.style.setProperty("color", darkModeLinkColor, "important"); // Set the "Dark Mode" label to match the "Sign-Up" color
+            }
+
+            function toggleNightMode() {
+                // Toggle the night mode class
+                document.body.classList.toggle('night-mode');
+
+                // Save the user preference in localStorage
+                if (document.body.classList.contains('night-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    toggleSwitch.checked = true; // Ensure the switch stays in sync
+                    darkModeLabel.style.setProperty("color", darkModeLinkColor, "important"); // Set the "Dark Mode" label to match "Sign-Up" color
+                    console.log("Dark mode enabled - Label color set to:", darkModeLinkColor);
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    toggleSwitch.checked = false; // Ensure the switch stays in sync
+                    darkModeLabel.style.setProperty("color", defaultLabelColor, "important"); // Set the "Dark Mode" label back to its original color
+                    console.log("Dark mode disabled - Label color set to:", defaultLabelColor);
+                }
+            }
+
+            // Event listener for the checkbox switch
+            if (toggleSwitch) {
+                toggleSwitch.addEventListener('change', toggleNightMode);
+            } else {
+                console.error("Toggle switch not found");
+            }
+        });
+    </script>
 </body>
 </html>
