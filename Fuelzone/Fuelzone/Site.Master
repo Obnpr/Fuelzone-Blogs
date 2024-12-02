@@ -199,16 +199,23 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Discussionmainpage">Discussions</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/pages/Aboutus">About Us</a></li>
                         <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
-                        <!-- This button only appears if the user is NOT logged in -->
-                        <li class="nav-item" runat="server" id="Li2">
-                            <asp:Button ID="btnProfile" runat="server" Text="Sign-Out" CssClass="btn btn-link nav-link" OnClick="btnProfile_Click" />
+                        
+                        <!-- Profile button moved before the Sign-Out button -->
+                        <li class="nav-item" runat="server" id="Prfle">
+                            <a class="nav-link" href="/pages/Profile/Profile.aspx">Profile</a>
                         </li>
+                        <li class="nav-item" runat="server" id="Li2">
+                            <asp:LinkButton ID="btnProfile" runat="server" CssClass="nav-link" OnClick="btnProfile_Click">Sign-Out</asp:LinkButton>
+                        </li>
+                        
+                        <!-- Sign-In and Sign-Up buttons -->
                         <li class="nav-item" runat="server" id="signUpLink">
                             <a class="nav-link" runat="server" href="~/pages/user_registration/signin/sign_in">Sign-In</a>
                         </li>
                         <li class="nav-item" runat="server" id="Li1">
                             <a class="nav-link sign-up-link" runat="server" href="~/pages/user_registration/signup/sign_up">Sign-Up</a>
                         </li>
+                        
                         <li style="width: 1px; height: 40px; background-color: #808080; margin: 0 15px;"></li>
                         <li class="nav-item">
                             <!-- Toggle Switch for Dark Mode with Label -->
@@ -217,9 +224,6 @@
                                 <label class="switch">
                                     <input type="checkbox" id="nightModeToggle" />
                                     <span class="slider"></span>
-                        <li class="nav-item" runat="server" id="Prfle">
-                            <a class="nav-link" href="/pages/Profile/Profile.aspx">Profile</a>
-                        </li>
                                 </label>
                             </div>
                         </li>

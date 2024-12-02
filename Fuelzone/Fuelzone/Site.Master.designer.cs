@@ -24,6 +24,15 @@ namespace Fuelzone
         protected global::System.Web.UI.HtmlControls.HtmlForm mainForm;
 
         /// <summary>
+        /// Prfle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Prfle;
+
+        /// <summary>
         /// Li2 control.
         /// </summary>
         /// <remarks>
@@ -39,7 +48,7 @@ namespace Fuelzone
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProfile;
+        protected global::System.Web.UI.WebControls.LinkButton btnProfile;
 
         /// <summary>
         /// signUpLink control.
@@ -58,15 +67,6 @@ namespace Fuelzone
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
-
-        /// <summary>
-        /// Prfle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Prfle;
 
         /// <summary>
         /// MainContent control.
