@@ -271,6 +271,7 @@
     </Compile>
     <Compile Include="pages\tutorial\Fortnite\BasicBuildingTechniques.aspx.designer.cs">
       <DependentUpon>BasicBuildingTechniques.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\tutorial\Codblackops6page.aspx.cs">
       <DependentUpon>Codblackops6page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
