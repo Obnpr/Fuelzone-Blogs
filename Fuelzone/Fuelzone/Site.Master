@@ -183,7 +183,6 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
@@ -218,6 +217,9 @@
                                 <label class="switch">
                                     <input type="checkbox" id="nightModeToggle" />
                                     <span class="slider"></span>
+                        <li class="nav-item" runat="server" id="Prfle">
+                            <a class="nav-link" href="/pages/Profile/Profile.aspx">Profile</a>
+                        </li>
                                 </label>
                             </div>
                         </li>
