@@ -19,6 +19,13 @@ namespace Fuelzone
                 LoadTopDiscussedGames();
                 LoadTopComments();
             }
+            if (!IsPostBack)
+            {
+                bool isAuthenticated = Session["IsAuthenticated"] != null && (bool)Session["IsAuthenticated"];
+
+                // Controlar la visibilidad del recuadro
+                newUserBox.Visible = !isAuthenticated;
+            }
 
         }
 
