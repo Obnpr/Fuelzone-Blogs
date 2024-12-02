@@ -133,8 +133,12 @@
     <Content Include="pages\tutorial\Fortnitepage.aspx" />
     <Content Include="pages\tutorial\Fortnite\FortniteAimImprovement.aspx" />
     <Content Include="pages\tutorial\Fortnite\BasicBuildingTechniques.aspx" />
+    <Content Include="pages\tutorial\Codblackops6page.aspx" />
+    <Content Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx" />
+    <Content Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx" />
     <Content Include="pages\tutorial\Valorantpage.aspx" />
-    <Content Include="pages\tutorial\valorant\Howtotouchgrass.aspx" />
+    <Content Include="pages\tutorial\valorant\basictipsandtricks.aspx" />
+    <Content Include="pages\tutorial\valorant\howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
     <Content Include="pages\user_registration\signup\sign_up.aspx" />
@@ -267,6 +271,26 @@
     </Compile>
     <Compile Include="pages\tutorial\Fortnite\BasicBuildingTechniques.aspx.designer.cs">
       <DependentUpon>BasicBuildingTechniques.aspx</DependentUpon>
+    <Compile Include="pages\tutorial\Codblackops6page.aspx.cs">
+      <DependentUpon>Codblackops6page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\Codblackops6page.aspx.designer.cs">
+      <DependentUpon>Codblackops6page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx.cs">
+      <DependentUpon>freedeadshotdaquiriinlibertyfalls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx.designer.cs">
+      <DependentUpon>freedeadshotdaquiriinlibertyfalls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx.cs">
+      <DependentUpon>libertyfallseasteregg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx.designer.cs">
+      <DependentUpon>libertyfallseasteregg.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\tutorial\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
@@ -275,12 +299,19 @@
     <Compile Include="pages\tutorial\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.cs">
-      <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
+    <Compile Include="pages\tutorial\valorant\basictipsandtricks.aspx.cs">
+      <DependentUpon>basictipsandtricks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.designer.cs">
-      <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
+    <Compile Include="pages\tutorial\valorant\basictipsandtricks.aspx.designer.cs">
+      <DependentUpon>basictipsandtricks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\valorant\howtotouchgrass.aspx.cs">
+      <DependentUpon>howtotouchgrass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\valorant\howtotouchgrass.aspx.designer.cs">
+      <DependentUpon>howtotouchgrass.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Profile\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
