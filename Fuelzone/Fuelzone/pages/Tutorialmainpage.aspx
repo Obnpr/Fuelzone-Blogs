@@ -16,6 +16,7 @@
                     <div class="row">
                         <!-- Example Game Icons -->
                         <div class="col-sm-4 mb-3 text-center">
+                            <a href="/pages/tutorial/CODBlackOps6page">
                             <a href="/pages/tutorial/Codblackops6page">
                                 <img src="/Assets/GameArtwork/CODBlackOps6.jpg" class="img-fluid" alt="Call of Duty: Black Ops 6" />
                             </a>
