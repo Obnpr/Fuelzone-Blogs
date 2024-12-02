@@ -1,4 +1,3 @@
 TODO:
-- Fix Dark mode en Sign-up y in
-- Bregar con los otros Juegos
+- Bregar con los otros Juegos en Discussion y Tutorials
 - Bregar con las paginas otras sanganas
