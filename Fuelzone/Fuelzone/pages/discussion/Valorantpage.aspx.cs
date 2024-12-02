@@ -185,7 +185,8 @@ namespace Fuelzone
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT C.comment_id, C.comment_text, A.username, C.user_posted_date, " +
-                               "(SELECT COUNT(*) FROM CommentLikes WHERE comment_fk_id = C.comment_id) AS LikeCount " +
+                               "(SELECT COUNT(*) FROM CommentLikes WHERE comment_fk_id = C.comment_id) AS LikeCount, " +
+                               "A.admin " + // admin status
                                "FROM Comment C " +
                                "INNER JOIN Account A ON C.user_fk_id = A.Id " +
                                "WHERE C.game_id = @gameId " +
@@ -206,7 +207,8 @@ namespace Fuelzone
                                 Username = reader["username"].ToString(),
                                 CommentText = reader["comment_text"].ToString(),
                                 Timestamp = Convert.ToDateTime(reader["user_posted_date"]).ToString("g"),
-                                LikeCount = reader.GetInt32(reader.GetOrdinal("LikeCount"))
+                                LikeCount = reader.GetInt32(reader.GetOrdinal("LikeCount")),
+                                IsAdmin = reader.GetBoolean(reader.GetOrdinal("admin")) // Set IsAdmin property
                             });
                         }
                     }
@@ -215,6 +217,7 @@ namespace Fuelzone
 
             return comments;
         }
+
     }
 
     public class Comment
@@ -223,6 +226,7 @@ namespace Fuelzone
         public string Username { get; set; }
         public string CommentText { get; set; }
         public string Timestamp { get; set; }
-        public int LikeCount { get; set; } // New property for like count
+        public int LikeCount { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

@@ -125,9 +125,11 @@
     <Content Include="Home.aspx" />
     <Content Include="pages\Aboutus.aspx" />
     <Content Include="pages\Discussionmainpage.aspx" />
+    <Content Include="pages\discussion\Fortnitepage.aspx" />
     <Content Include="pages\discussion\Valorantpage.aspx" />
     <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Profile\Profile.aspx" />
+    <Content Include="pages\tutorial\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
     <Content Include="pages\user_registration\signup\sign_up.aspx" />
@@ -219,6 +221,13 @@
     <Compile Include="pages\Discussionmainpage.aspx.designer.cs">
       <DependentUpon>Discussionmainpage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\discussion\Fortnitepage.aspx.cs">
+      <DependentUpon>Fortnitepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\discussion\Fortnitepage.aspx.designer.cs">
+      <DependentUpon>Fortnitepage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\discussion\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,11 +235,11 @@
     <Compile Include="pages\discussion\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\discussion\valorant\Howtotouchgrass.aspx.cs">
+    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\discussion\valorant\Howtotouchgrass.aspx.designer.cs">
+    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.designer.cs">
       <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Profile\Profile.aspx.cs">
@@ -284,9 +293,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="pages\tutorial\valorant\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />

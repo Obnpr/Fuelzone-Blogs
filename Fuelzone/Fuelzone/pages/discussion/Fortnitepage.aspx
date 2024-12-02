@@ -1,0 +1,57 @@
+﻿<%@ Page Title="Fortnite Discussions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="Fortnitepage.aspx.cs" Inherits="Fuelzone.pages.discussion.Fortnite_page" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <main class="container mt-4" aria-labelledby="title">
+        <!-- Title Section -->
+        <section class="row">
+            <div class="col-12">
+                <h2>Another Game Discussion Board</h2>
+            </div>
+        </section>
+
+        <!-- Comment Section -->
+        <section class="row mt-4">
+            <div class="col-12">
+                <h3>Discussion Forum</h3>
+                <!-- Comment Form -->
+                <div id="commentForm">
+                    <div class="form-group">
+                        <label for="commentInput">Leave a comment:</label>
+                        <asp:TextBox ID="commentInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Share your thoughts..."></asp:TextBox>
+                    </div>
+                    <asp:Button ID="SubmitCommentButton" runat="server" CssClass="btn btn-primary mt-2" Text="Post Comment" OnClick="SubmitCommentButton_Click" />
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger mt-2"></asp:Label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comment List Section -->
+        <section class="row mt-4">
+            <div class="col-12">
+                <h4>Comments</h4>
+                <div id="commentsSection">
+
+                    <asp:Repeater ID="CommentsRepeater" runat="server">
+                        <ItemTemplate>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%# Eval("Username") %></h5>
+                                    <p class="card-text"><%# Eval("CommentText") %></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><%# Eval("Timestamp") %></small>
+                                        <asp:Button ID="LikeButton" runat="server" CssClass="btn btn-outline-primary btn-sm" 
+                                                    Text='<%# "👍 Like (" + Eval("LikeCount") + ")" %>' 
+                                                    CommandArgument='<%# Eval("CommentId") %>' 
+                                                    OnClick="LikeButton_Click" />
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </div>
+            </div>
+        </section>
+    </main>
+</asp:Content>
+

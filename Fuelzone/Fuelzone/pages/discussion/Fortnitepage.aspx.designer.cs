@@ -7,38 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fuelzone.pages
+namespace Fuelzone.pages.discussion
 {
 
 
-    public partial class Tutorialmainpage
+    public partial class Fortnite_page
     {
 
         /// <summary>
-        /// featuredGameLink control.
+        /// commentInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor featuredGameLink;
+        protected global::System.Web.UI.WebControls.TextBox commentInput;
 
         /// <summary>
-        /// featuredGameImage control.
+        /// SubmitCommentButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage featuredGameImage;
+        protected global::System.Web.UI.WebControls.Button SubmitCommentButton;
 
         /// <summary>
-        /// featuredGameTitle control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl featuredGameTitle;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
+        /// CommentsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater CommentsRepeater;
     }
 }

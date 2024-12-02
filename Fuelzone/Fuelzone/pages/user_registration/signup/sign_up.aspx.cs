@@ -71,7 +71,7 @@ namespace Fuelzone.pages.user_registration.signup
                     }
 
                     // Insert new record - no need to specify Id, it will be generated automatically
-                    string insertQuery = "INSERT INTO Account (userId, Username, Email, Password) VALUES (@userId, @Username, @Email, @Password)";
+                    string insertQuery = "INSERT INTO Account (userId, Username, Email, Password) OUTPUT INSERTED.Id VALUES (@userId, @Username, @Email, @Password)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@userId", userId);
@@ -79,8 +79,8 @@ namespace Fuelzone.pages.user_registration.signup
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                        int newUserId = (int)cmd.ExecuteScalar(); // Fetch the new Id
+                        if (newUserId > 0)
                         {
                             lblMessage.Text = "Sign-up successful!";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
@@ -88,6 +88,7 @@ namespace Fuelzone.pages.user_registration.signup
                             // Set session value to simulate user being logged in
                             Session["IsAuthenticated"] = true;
                             Session["Username"] = username;
+                            Session["UserId"] = newUserId; // Store the correct integer user Id here
 
                             // Redirect to home page or another page after signup
                             Response.Redirect("~/");

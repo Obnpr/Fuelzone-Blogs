@@ -41,18 +41,14 @@
             <!-- Featured Game Tut. -->
             <aside class="col-md-4">
                 <div class="bg-secondary text-white p-4">
-                    <h4>Featured Tutorials</h4>
+                    <h4>Featured game</h4>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="/Tutorials/Featured1" class="text-white">Featured Game Tutorial 1</a>
+                            <a id="featuredGameLink" runat="server" class="text-white">
+                                <img id="featuredGameImage" runat="server" style="max-width: 100%; height: auto;" />
+                                <span id="featuredGameTitle" runat="server"></span>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/Tutorials/Featured2" class="text-white">Featured Game Tutorial 2</a>
-                        </li>
-                        <li>
-                            <a href="/Tutorials/Featured3" class="text-white">Featured Game Tutorial 3</a>
-                        </li>
-                        <!-- Add more features -->
                     </ul>
                 </div>
             </aside>
