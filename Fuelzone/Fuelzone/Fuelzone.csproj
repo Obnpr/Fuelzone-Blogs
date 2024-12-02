@@ -130,6 +130,7 @@
     <Content Include="pages\discussion\Valorantpage.aspx" />
     <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Profile\Profile.aspx" />
+    <Content Include="pages\tutorial\Valorantpage.aspx" />
     <Content Include="pages\tutorial\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
@@ -241,6 +242,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\discussion\Valorantpage.aspx.designer.cs">
+      <DependentUpon>Valorantpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\Valorantpage.aspx.cs">
+      <DependentUpon>Valorantpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.cs">

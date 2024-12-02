@@ -28,7 +28,7 @@
                             <h5>Fortnite</h5>
                         </div>
                         <div class="col-sm-4 mb-3 text-center">
-                            <a href="/pages/tutorials/Valorantpage">
+                            <a href="/pages/tutorial/Valorantpage">
                                 <img src="/Assets/GameArtwork/Valorant.jpg" class="img-fluid" alt="Valorant" />
                             </a>
                             <h5>Valorant</h5>
