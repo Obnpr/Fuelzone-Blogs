@@ -51,6 +51,15 @@ namespace Fuelzone
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
 
         /// <summary>
+        /// Prfle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Prfle;
+
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

@@ -17,6 +17,7 @@ namespace Fuelzone
             Li2.Visible = isAuthenticated;         // Mostrar Sign-Out
             signUpLink.Visible = !isAuthenticated; // Mostrar Sign-In
             Li1.Visible = !isAuthenticated;        // Mostrar Sign-Up
+            Prfle.Visible= isAuthenticated;        //Mostrar Boton Profile
         }
         protected void btnProfile_Click(object sender, EventArgs e)
         {
