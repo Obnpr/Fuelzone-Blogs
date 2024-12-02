@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Valorant Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tutorials.aspx.cs" Inherits="Fuelzone.Contact" %>
+﻿<%@ Page Title="Valorant Tutorials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="howtotouchgrass.aspx.cs" Inherits="Fuelzone.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
@@ -7,7 +7,8 @@
         <section class="row mb-4">
             <div class="col-12">
                 <div class="custom-bg text-white p-4">
-                    <h2>How to Touch Grass - Gamers most needed medice!</h2>
+                    <h2>How to Touch Grass - Gamers most needed medicine!</h2>
+                    <hr>
                     <p><strong>Game:</strong> Valorant</p>
                     <p><strong>Author:</strong> Obed Negron</p>
                 </div>
@@ -24,6 +25,7 @@
         <section class="row mb-4">
             <div class="col-12">
                 <div class="bg-light p-4 night-mode-bg">
+                    <h3>Introduction</h3>
                     <p>
                         In the competitive world of gaming, it’s easy to get caught up in endless ranked matches, adrenaline-fueled moments, and the desire to reach new heights. But sometimes, taking a step back and reconnecting with the real world is just as important for your well-being and performance. This guide is all about exploring the concept of "touching grass" — stepping outside, taking a breather, and resetting your mind. We'll cover the benefits of balancing your gaming life with real-world moments, how touching grass can improve your mental and emotional health, and practical tips to help you integrate these breaks into your routine.
                     </p>

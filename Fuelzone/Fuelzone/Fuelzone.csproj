@@ -131,7 +131,8 @@
     <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Profile\Profile.aspx" />
     <Content Include="pages\tutorial\Valorantpage.aspx" />
-    <Content Include="pages\tutorial\valorant\Howtotouchgrass.aspx" />
+    <Content Include="pages\tutorial\valorant\basictipsandtricks.aspx" />
+    <Content Include="pages\tutorial\valorant\howtotouchgrass.aspx" />
     <Content Include="pages\Tutorialmainpage.aspx" />
     <Content Include="pages\user_registration\signin\sign_in.aspx" />
     <Content Include="pages\user_registration\signup\sign_up.aspx" />
@@ -251,12 +252,19 @@
     <Compile Include="pages\tutorial\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.cs">
-      <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
+    <Compile Include="pages\tutorial\valorant\basictipsandtricks.aspx.cs">
+      <DependentUpon>basictipsandtricks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\tutorial\valorant\Howtotouchgrass.aspx.designer.cs">
-      <DependentUpon>Howtotouchgrass.aspx</DependentUpon>
+    <Compile Include="pages\tutorial\valorant\basictipsandtricks.aspx.designer.cs">
+      <DependentUpon>basictipsandtricks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\valorant\howtotouchgrass.aspx.cs">
+      <DependentUpon>howtotouchgrass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\valorant\howtotouchgrass.aspx.designer.cs">
+      <DependentUpon>howtotouchgrass.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Profile\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
