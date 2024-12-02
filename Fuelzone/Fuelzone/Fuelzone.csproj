@@ -130,6 +130,9 @@
     <Content Include="pages\discussion\Valorantpage.aspx" />
     <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
     <Content Include="pages\Profile\Profile.aspx" />
+    <Content Include="pages\tutorial\Codblackops6page.aspx" />
+    <Content Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx" />
+    <Content Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx" />
     <Content Include="pages\tutorial\Valorantpage.aspx" />
     <Content Include="pages\tutorial\valorant\basictipsandtricks.aspx" />
     <Content Include="pages\tutorial\valorant\howtotouchgrass.aspx" />
@@ -244,6 +247,27 @@
     </Compile>
     <Compile Include="pages\discussion\Valorantpage.aspx.designer.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\Codblackops6page.aspx.cs">
+      <DependentUpon>Codblackops6page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\Codblackops6page.aspx.designer.cs">
+      <DependentUpon>Codblackops6page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx.cs">
+      <DependentUpon>freedeadshotdaquiriinlibertyfalls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\freedeadshotdaquiriinlibertyfalls.aspx.designer.cs">
+      <DependentUpon>freedeadshotdaquiriinlibertyfalls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx.cs">
+      <DependentUpon>libertyfallseasteregg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tutorial\codblackops6\libertyfallseasteregg.aspx.designer.cs">
+      <DependentUpon>libertyfallseasteregg.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\tutorial\Valorantpage.aspx.cs">
       <DependentUpon>Valorantpage.aspx</DependentUpon>
