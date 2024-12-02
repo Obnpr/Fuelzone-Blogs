@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Fortnite Discussion Board" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="FortnitePage.aspx.cs" Inherits="Fuelzone.FortnitePage" %>
+﻿<%@ Page Title="Call of Duty: Black Ops 6 Discussion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="CODBlackOps6page.aspx.cs" Inherits="Fuelzone.CODBlackOps6page" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
         <!-- Title Section -->
         <section class="row">
             <div class="col-12">
-                <h2>Fortnite Discussion Board</h2>
+                <h2>Call of Duty: Black Ops 6 Discussion Board</h2>
             </div>
         </section>
 

@@ -1,25 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Fuelzone
 {
-    public partial class Contact : System.Web.UI.Page
+    public partial class CODBlackOps6page : System.Web.UI.Page
     {
         protected override void OnInit(EventArgs e)
         {
-            this.Load += new EventHandler(Page_Load_Valorant);
+            this.Load += new EventHandler(Page_Load_CODBlackOps6);
             base.OnInit(e);
         }
 
-        protected void Page_Load_Valorant(object sender, EventArgs e)
+        protected void Page_Load_CODBlackOps6(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadComments();
+                SetCommentSectionVisibility();
             }
+        }
+
+        private void SetCommentSectionVisibility()
+        {
+            bool isAuthenticated = Session["UserId"] != null;
+            commentInput.Enabled = isAuthenticated;
+            SubmitCommentButton.Enabled = isAuthenticated;
+            lblMessage.Visible = !isAuthenticated;
+            lblMessage.Text = isAuthenticated ? "" : "You must be logged in to comment.";
         }
 
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace Fuelzone
                 if (Session["UserId"] != null)
                 {
                     int userId = (int)Session["UserId"];
-                    int gameId = 1;
+                    int gameId = 3; // ID para CODBlackOps6
                     SaveCommentToDatabase(commentText, userId, gameId);
                     commentInput.Text = "";
                     LoadComments();
@@ -72,27 +81,11 @@ namespace Fuelzone
 
         private void LoadComments()
         {
-            int gameId = 1;
+            int gameId = 3;  // ID del juego CODBlackOps6
             var comments = GetCommentsFromDatabase(gameId);
 
-            if (comments.Count == 0)
-            {
-                System.Diagnostics.Debug.WriteLine("No comments found.");
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine(comments.Count + " comments found.");
-            }
-
-            if (CommentsRepeater == null)
-            {
-                System.Diagnostics.Debug.WriteLine("CommentsRepeater is null.");
-            }
-            else
-            {
-                CommentsRepeater.DataSource = comments;
-                CommentsRepeater.DataBind();
-            }
+            CommentsRepeater.DataSource = comments;
+            CommentsRepeater.DataBind();
         }
 
         private void SaveCommentToDatabase(string commentText, int userId, int gameId)
@@ -112,7 +105,6 @@ namespace Fuelzone
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
-                        System.Diagnostics.Debug.WriteLine("Comment saved successfully.");
                     }
                     catch (Exception ex)
                     {
@@ -120,6 +112,48 @@ namespace Fuelzone
                     }
                 }
             }
+        }
+
+        private List<Comment2> GetCommentsFromDatabase(int gameId)
+        {
+            var comments = new List<Comment2>();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT C.comment_id, C.comment_text, A.username, C.user_posted_date, " +
+                               "(SELECT COUNT(*) FROM CommentLikes WHERE comment_fk_id = C.comment_id) AS LikeCount, " +
+                               "A.admin " +
+                               "FROM Comment C " +
+                               "INNER JOIN Account A ON C.user_fk_id = A.Id " +
+                               "WHERE C.game_id = @gameId " +
+                               "ORDER BY C.user_posted_date DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@gameId", gameId);
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comments.Add(new Comment2
+                            {
+                                CommentId = reader.GetInt32(reader.GetOrdinal("comment_id")),
+                                Username = reader["username"].ToString(),
+                                CommentText = reader["comment_text"].ToString(),
+                                Timestamp = Convert.ToDateTime(reader["user_posted_date"]).ToString("g"),
+                                LikeCount = reader.GetInt32(reader.GetOrdinal("LikeCount")),
+                                IsAdmin = reader.GetBoolean(reader.GetOrdinal("admin"))
+                            });
+                        }
+                    }
+                }
+            }
+
+            return comments;
         }
 
         private void AddLikeToDatabase(int userId, int commentId)
@@ -161,6 +195,7 @@ namespace Fuelzone
         private bool UserHasLikedComment(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT COUNT(*) FROM CommentLikes WHERE user_fk_id = @userId AND comment_fk_id = @commentId";
@@ -175,52 +210,9 @@ namespace Fuelzone
                 }
             }
         }
-
-        private List<Comment1> GetCommentsFromDatabase(int gameId)
-        {
-            var comments = new List<Comment1>();
-
-            string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT C.comment_id, C.comment_text, A.username, C.user_posted_date, " +
-                               "(SELECT COUNT(*) FROM CommentLikes WHERE comment_fk_id = C.comment_id) AS LikeCount, " +
-                               "A.admin " + // admin status
-                               "FROM Comment C " +
-                               "INNER JOIN Account A ON C.user_fk_id = A.Id " +
-                               "WHERE C.game_id = @gameId " +
-                               "ORDER BY C.user_posted_date DESC";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@gameId", gameId);
-
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            comments.Add(new Comment1
-                            {
-                                CommentId = reader.GetInt32(reader.GetOrdinal("comment_id")),
-                                Username = reader["username"].ToString(),
-                                CommentText = reader["comment_text"].ToString(),
-                                Timestamp = Convert.ToDateTime(reader["user_posted_date"]).ToString("g"),
-                                LikeCount = reader.GetInt32(reader.GetOrdinal("LikeCount")),
-                                IsAdmin = reader.GetBoolean(reader.GetOrdinal("admin")) // Set IsAdmin property
-                            });
-                        }
-                    }
-                }
-            }
-
-            return comments;
-        }
-
     }
 
-    public class Comment1
+    public class Comment2
     {
         public int CommentId { get; set; }
         public string Username { get; set; }

@@ -125,6 +125,7 @@
     <Content Include="Home.aspx" />
     <Content Include="pages\Aboutus.aspx" />
     <Content Include="pages\Discussionmainpage.aspx" />
+    <Content Include="pages\discussion\CODBlackOps6page.aspx" />
     <Content Include="pages\discussion\Fortnitepage.aspx" />
     <Content Include="pages\discussion\Valorantpage.aspx" />
     <Content Include="pages\discussion\valorant\Howtotouchgrass.aspx" />
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="pages\Discussionmainpage.aspx.designer.cs">
       <DependentUpon>Discussionmainpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\discussion\CODBlackOps6page.aspx.cs">
+      <DependentUpon>CODBlackOps6page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\discussion\CODBlackOps6page.aspx.designer.cs">
+      <DependentUpon>CODBlackOps6page.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\discussion\Fortnitepage.aspx.cs">
       <DependentUpon>Fortnitepage.aspx</DependentUpon>

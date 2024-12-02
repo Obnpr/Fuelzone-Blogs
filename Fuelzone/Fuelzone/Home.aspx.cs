@@ -116,8 +116,8 @@ namespace Fuelzone
             var gameDetails = new Dictionary<int, (string GameName, string Color, string PageUrl)>
     {
         { 1, ("Valorant", "red", "/pages/discussion/Valorantpage") },
-        { 2, ("Fortnite", "blue","/pages/tutorials/Fortnitepage") },
-        { 3, ("Call of Duty: Black Ops 6", "orange","/pages/tutorials/CODBlackOps6page") }
+        { 2, ("Fortnite", "blue","/pages/discussion/Fortnitepage") },
+        { 3, ("Call of Duty: Black Ops 6", "orange","/pages/discussion/CODBlackOps6page") }
     };
 
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;

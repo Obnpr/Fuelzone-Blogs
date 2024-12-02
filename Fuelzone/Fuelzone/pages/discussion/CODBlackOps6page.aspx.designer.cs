@@ -11,7 +11,7 @@ namespace Fuelzone
 {
 
 
-    public partial class FortnitePage
+    public partial class CODBlackOps6page
     {
 
         /// <summary>
