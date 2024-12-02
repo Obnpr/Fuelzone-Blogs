@@ -87,13 +87,13 @@ namespace Fuelzone
 
         private void LoadUserComments(string username)
         {
-            var gameDetails = new Dictionary<int, (string GameName, string Color)>
+            var gameDetails = new Dictionary<int, (string GameName, string Color, string PageUrl)>
             {
-                { 1, ("Valorant", "red") },
-                { 2, ("Fortnite", "blue") },
-                { 3, ("Call of Duty: Black Ops 6", "orange") }
+        { 1, ("Valorant", "red", "/pages/discussion/Valorantpage") },
+        { 2, ("Fortnite", "blue","/pages/discussion/Fortnitepage") },
+        { 3, ("Call of Duty: Black Ops 6", "orange","/pages/discussion/CODBlackOps6page") }
             };
-
+  
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             string query = @"
@@ -135,11 +135,14 @@ namespace Fuelzone
 
                             string gameName = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].GameName : "Unknown Game";
                             string gameColor = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].Color : "gray";
+                            string gameUrl = gameDetails.ContainsKey(gameId) ? gameDetails[gameId].PageUrl : "#";
+
+                            string gameLink = $"{gameUrl}?commentId={commentId}";
 
                             html.Append("<div class='comment-box' style='border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;'>");
-                            html.Append($"<h5 style='font-size:20px; font-weight:bold; color:{gameColor};'>{gameName}</h5>");
-                            html.Append($"<p style='margin:5px 0;'>{commentText}</p>");
-                            html.Append($"<p style='color:white; margin:5px 0;'>👍 Likes: {likesCount}</p>");
+                            html.Append($"<h5 style='font-size:20px; font-weight:bold;'><a href='{gameLink}' style='color:{gameColor}; text-decoration:none;'>{gameName}</a></h5>");
+                            html.Append($"<p style='margin:5px 0;'><strong>{username}</strong>: {commentText}</p>");
+                            html.Append($"<p style='color:white; margin:5px 0;'>👍Likes: {likesCount}</p>");
                             html.Append("</div>");
                         }
                         html.Append("</div>");
