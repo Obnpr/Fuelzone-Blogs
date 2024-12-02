@@ -4,6 +4,8 @@
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #2a2a2a; /* Medium dark gray for container areas by default */
+    color: #e0e0e0; /* Light gray text for contrast by default */
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -11,11 +13,75 @@ input,
 select,
 textarea {
     max-width: 280px;
+    background-color: #333; /* Dark gray input background by default */
+    color: #e0e0e0; /* Light text for input by default */
+    border: 1px solid #444; /* Dark border by default */
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .body-content {
-        padding: 0;
+        padding: 15px;
     }
+}
+
+/* Default Night Mode Styles */
+body {
+    background-color: #181818; /* Darker background by default */
+    color: #e0e0e0; /* Light gray text for readability by default */
+}
+
+/* Navbar styling for night mode */
+.navbar {
+    background-color: #222; /* Slightly darker navbar for contrast by default */
+    color: #e0e0e0;
+}
+
+/* Container styling for night mode */
+.container,
+.body-content {
+    background-color: #2a2a2a; /* Medium dark gray for container areas by default */
+    color: #e0e0e0; /* Light gray text for contrast by default */
+}
+
+/* Card and Section Backgrounds */
+.card,
+.section {
+    background-color: #2a2a2a;
+    border: 1px solid #333; /* Add subtle borders to separate sections by default */
+}
+
+/* Link styles for night mode */
+a {
+    color: #82aaff; /* Soft blue for links by default */
+}
+
+    a:hover {
+        color: #5a2b91; /* Light purple for hover by default */
+    }
+
+/* Button styles for night mode */
+button,
+.btn {
+    background-color: #333; /* Dark button background by default */
+    color: #e0e0e0; /* Light text by default */
+    border: 1px solid #444; /* Border for buttons by default */
+}
+
+/* Headings styles for night mode */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffffff; /* Bright white headings to stand out by default */
+}
+
+/* Cards, widgets, and box shadows */
+.card,
+.widget,
+.box {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth by default */
 }
