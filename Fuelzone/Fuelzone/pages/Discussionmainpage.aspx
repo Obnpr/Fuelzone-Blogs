@@ -5,7 +5,7 @@
         <!-- Title Section -->
         <section class="row">
             <div class="col-12">
-                <h2>Game list</h2>
+                <h2>List</h2>
             </div>
         </section>
 

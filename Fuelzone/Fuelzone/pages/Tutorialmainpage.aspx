@@ -5,7 +5,7 @@
         <!-- Title Section -->
         <section class="row">
             <div class="col-12">
-                <h2>Game list</h2>
+                <h2>List</h2>
             </div>
         </section>
 
@@ -17,7 +17,6 @@
                         <!-- Example Game Icons -->
                         <div class="col-sm-4 mb-3 text-center">
                             <a href="/pages/tutorial/CODBlackOps6page">
-                            <a href="/pages/tutorial/Codblackops6page">
                                 <img src="/Assets/GameArtwork/CODBlackOps6.jpg" class="img-fluid" alt="Call of Duty: Black Ops 6" />
                             </a>
                             <h5>Call of Duty: Black Ops 6</h5>
@@ -41,7 +40,7 @@
 
             <!-- Featured Game Tut. -->
             <aside class="col-md-4">
-                <div class="bg-secondary text-white p-4">
+                <div class="bg-custom text-white p-4 d-flex flex-column align-items-center justify-content-center text-center">
                     <h4>Featured game</h4>
                     <ul class="list-unstyled">
                         <li>
@@ -55,4 +54,31 @@
             </aside>
         </div>
     </main>
+
+    <style>
+        .bg-custom {
+            background-color: #5a2b91;
+        }
+
+        /* Flexbox to center content */
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
 </asp:Content>
