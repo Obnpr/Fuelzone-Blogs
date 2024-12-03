@@ -31,22 +31,12 @@
                 </div>
 
                 <div class="row mt-4">
-                    <!-- Top Comments Section -->
-                    <div class="col-md-6">
+                    <!-- Top Comments Section Expanded -->
+                    <div class="col-md-12">
                         <div class="text-white p-4" style="background-color: #3a1d5a;">
                             <h2>Top Comments</h2>
                             <div>
                                 <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Top Tutorials Section -->
-                    <div class="col-md-6">
-                        <div class="text-white p-4" style="background-color: #3a1d5a;">
-                            <h2>Top Tutorials</h2>
-                            <div id="topTutorialsContainer" runat="server">
-                                <!-- Tutorials will be generated dynamically here -->
                             </div>
                         </div>
                     </div>
@@ -61,6 +51,14 @@
                     <!-- Shows current featured games -->
                     <div class="row">
                         <asp:Literal ID="MostDiscussedGameLiteral" runat="server" />
+                    </div>
+                </div>
+
+                <!-- Games You May Like Section -->
+                <div id="gamesYouMayLikeBox" class="text-white p-4 mt-4" style="background-color: #3a1d5a;" runat="server">
+                    <h2>Games You May Like</h2>
+                    <div class="row" id="games-container">
+                        <asp:Literal ID="RecommendedGamesLiteral" runat="server"></asp:Literal>
                     </div>
                 </div>
             </aside>

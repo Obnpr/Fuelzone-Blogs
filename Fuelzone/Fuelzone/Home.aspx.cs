@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,7 +19,9 @@ namespace Fuelzone
                 LoadRegisteredUserCount();
                 LoadTopDiscussedGames();
                 LoadTopComments();
+                LoadRecommendedGame(); // Cargar juego recomendado
             }
+
             if (!IsPostBack)
             {
                 bool isAuthenticated = Session["IsAuthenticated"] != null && (bool)Session["IsAuthenticated"];
@@ -26,7 +29,6 @@ namespace Fuelzone
                 // Controlar la visibilidad del recuadro
                 newUserBox.Visible = !isAuthenticated;
             }
-
         }
 
         private void LoadRegisteredUserCount()
@@ -114,11 +116,11 @@ namespace Fuelzone
         {
             // Diccionario para mapear los nombres de los juegos
             var gameDetails = new Dictionary<int, (string GameName, string Color, string PageUrl)>
-    {
-        { 1, ("Valorant", "red", "/pages/discussion/Valorantpage") },
-        { 2, ("Fortnite", "blue","/pages/discussion/Fortnitepage") },
-        { 3, ("Call of Duty: Black Ops 6", "orange","/pages/discussion/CODBlackOps6page") }
-    };
+            {
+                { 1, ("Valorant", "red", "/pages/discussion/Valorantpage") },
+                { 2, ("Fortnite", "blue", "/pages/discussion/Fortnitepage") },
+                { 3, ("Call of Duty: Black Ops 6", "orange", "/pages/discussion/CODBlackOps6page") }
+            };
 
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
@@ -185,5 +187,54 @@ namespace Fuelzone
             }
         }
 
+        private void LoadRecommendedGame()
+        {
+            // Diccionario de los juegos para "Games You May Like"
+            var recommendedGames = new Dictionary<int, (string GameName, string ImageUrl)>
+    {
+        { 4, ("Minecraft", "/Assets/GameArtwork/Minecraft.jpg") },
+        { 5, ("Apex Legends", "/Assets/GameArtwork/Apex.jpg") },
+        { 6, ("The Witcher 3", "/Assets/GameArtwork/TheWitcher3.jpg") },
+        { 7, ("Destiny 2", "/Assets/GameArtwork/Destiny2.jpg") },
+        { 8, ("Path of Exile 2", "/Assets/GameArtwork/PathofExile2.jpg") },
+        { 10,("New World: Aeternum", "/Assets/GameArtwork/NewWorldAeternum.jpg") },
+        { 11,("The Legend of Zelda: Breath of the Wildp", "/Assets/GameArtwork/TheLegendofZeldaBreathoftheWild.jpg") }
+    };
+
+            try
+            {
+                // Seleccionar un juego aleatorio del diccionario
+                Random random = new Random();
+                var gameIds = recommendedGames.Keys.ToList();
+                int randomGameId = gameIds[random.Next(gameIds.Count)]; // Asegurar que el ID seleccionado esté siempre en la lista
+
+                // Obtener los detalles del juego aleatorio
+                if (recommendedGames.ContainsKey(randomGameId))
+                {
+                    var game = recommendedGames[randomGameId];
+                    StringBuilder html = new StringBuilder();
+                    html.AppendFormat(@"
+                <div class=""text-center mb-4"">
+                    <img src=""{0}"" alt=""{1}"" class=""img-fluid mb-3"" style=""max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;"" />
+                    <h4>{1}</h4>
+                </div>",
+                        game.ImageUrl, game.GameName);
+
+                    // Asignar el HTML generado al Literal correspondiente
+                    RecommendedGamesLiteral.Text = html.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error loading recommended game: " + ex.Message);
+
+                // Valor predeterminado en caso de error
+                RecommendedGamesLiteral.Text = @"
+            <div class=""text-center mb-4"">
+                <h4>Game recommendations unavailable</h4>
+                <p>Check back later for more exciting game suggestions!</p>
+            </div>";
+            }
+        }
     }
 }

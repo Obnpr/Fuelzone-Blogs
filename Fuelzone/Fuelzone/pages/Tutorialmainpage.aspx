@@ -45,7 +45,7 @@
                     <ul class="list-unstyled">
                         <li>
                             <a id="featuredGameLink" runat="server" class="text-white">
-                                <img id="featuredGameImage" runat="server" style="max-width: 100%; height: auto;" />
+                                <img src="featuredGameImage" id="featuredGameImage" runat="server" style="max-width: 100%; height: auto;" />
                                 <span id="featuredGameTitle" runat="server"></span>
                             </a>
                         </li>
