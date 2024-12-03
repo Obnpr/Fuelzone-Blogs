@@ -18,18 +18,11 @@ namespace Fuelzone
             if (!IsPostBack)
             {
                 LoadComments();
-                SetCommentSectionVisibility();
+              
             }
         }
 
-        private void SetCommentSectionVisibility()
-        {
-            bool isAuthenticated = Session["UserId"] != null;
-            commentInput.Enabled = isAuthenticated;
-            SubmitCommentButton.Enabled = isAuthenticated;
-            lblMessage.Visible = !isAuthenticated;
-            lblMessage.Text = isAuthenticated ? "" : "You must be logged in to comment.";
-        }
+       
 
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
