@@ -88,9 +88,9 @@ namespace Fuelzone
         {
             var gameDetails = new Dictionary<int, (string GameName, string ImageUrl, string PageUrl)>
             {
-                { 1, ("Valorant", "/Assets/GameArtwork/Valorant.jpg", "/pages/tutorials/valorantpage") },
-                { 2, ("Fortnite", "/Assets/GameArtwork/Fortnite.jpg", "/pages/tutorials/fortnitepage") },
-                { 3, ("Call of Duty: Black Ops 6", "/Assets/GameArtwork/CODBlackOps6.jpg", "/pages/tutorials/codblackops6page") },
+                { 1, ("Valorant", "/Assets/GameArtwork/Valorant.jpg", "/pages/tutorial/valorantpage") },
+                { 2, ("Fortnite", "/Assets/GameArtwork/Fortnite.jpg", "/pages/tutorial/fortnitepage") },
+                { 3, ("Call of Duty: Black Ops 6", "/Assets/GameArtwork/CODBlackOps6.jpg", "/pages/tutorial/codblackops6page") },
             };
 
             string htmlContent = "<div class=\"row\">";
