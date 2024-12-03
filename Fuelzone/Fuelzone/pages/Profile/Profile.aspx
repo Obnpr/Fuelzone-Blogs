@@ -6,8 +6,8 @@
         <section class="row mt-3">
             <div class="col-12">
                 <div class="bg-secondary text-white p-4">
-                    <h1>User Profile</h1>
-                    <p class="lead">View your account information and activity below.</p>
+                    <h1>Profile</h1>
+                    <p class="lead">View your account information and activity.</p>
                     <p><strong>Username:</strong> <asp:Literal ID="UsernameLiteral" runat="server" /></p>
                     <p><strong>Email:</strong> <asp:Literal ID="EmailLiteral" runat="server" /></p>
                 </div>
@@ -19,7 +19,7 @@
             <!-- User Comments Section -->
             <section class="col-md-12">
                 <div class="bg-secondary text-white p-4">
-                    <h2>Your Comments</h2>
+                    <h2>Your Comments History</h2>
                     <div>
                         <asp:Literal ID="UserCommentsLiteral" runat="server"></asp:Literal>
                     </div>

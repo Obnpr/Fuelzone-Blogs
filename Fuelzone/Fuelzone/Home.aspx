@@ -5,7 +5,7 @@
         <!-- Top Section: Welcome Message -->
         <section class="row mt-3">
             <div class="col-12">
-                <div class="bg-secondary text-white p-4">
+                <div class="text-white p-4" style="background-color: #3a1d5a;">
                     <h1>Welcome to Fuelzone!</h1>
                     <p class="lead">Most comprehensive, well-documented, easy to follow tutorials for the most exciting games today!</p>
                 </div>
@@ -16,53 +16,46 @@
         <div class="row mt-4">
             <!-- Articles Section (Main Area) -->
             <section class="col-md-8">
-                <div class="bg-secondary text-white p-4">
+                <div class="text-white p-4" style="background-color: #3a1d5a;">
                     <h2>What we provide?</h2>
                     <p>We provide high quality tutorial guides, a very in-depth discussions, and more to come!</p>
-                   
                 </div>
 
+                <!-- New User Sign Up Box -->
+                <div id="newUserBox" class="text-white p-4" style="background-color: #3a1d5a; margin-top: 30px;" runat="server">
+                    <h2>New User?</h2>
+                    <p>Create an account to enjoy all the benefits of our platform, including discussions and tutorials!</p>
+                    <p>
+                        <a class="btn btn-primary" href="/pages/user_registration/signup/sign_up.aspx">Sign Up &raquo;</a>
+                    </p>
+                </div>
 
-                            <!-- New User Sing uo box-->
+                <div class="row mt-4">
+                    <!-- Top Comments Section -->
+                    <div class="col-md-6">
+                        <div class="text-white p-4" style="background-color: #3a1d5a;">
+                            <h2>Top Comments</h2>
+                            <div>
+                                <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
+                            </div>
+                        </div>
+                    </div>
 
-            <div id="newUserBox" class="bg-secondary text-white p-4" style="margin-top: 30px;" runat="server">
-    <h2>New User?</h2>
-    <p>Create an account to enjoy all the benefits of our platform, including discussions and tutorials!</p>
-    <p>
-        <a class="btn btn-primary" href="/pages/user_registration/signup/sign_up.aspx">Sign Up &raquo;</a>
-    </p>
-</div>
-
-        <div class="row mt-4">
-    <!-- Top Comments Section -->
-    <div class="col-md-6">
-        <div class="bg-secondary text-white p-4">
-            <h2>Top Comments</h2>
-            <div>
-                <asp:Literal ID="TopCommentsLiteral" runat="server"></asp:Literal>
-            </div>
-        </div>
-    </div>
-
-    <!-- Top Tutorials Section -->
-    <div class="col-md-6">
-        <div class="bg-secondary text-white p-4">
-            <h2>Top Tutorials</h2>
-            <div id="topTutorialsContainer" runat="server">
-                <!-- Los tutoriales se generarán dinámicamente aquí -->
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
+                    <!-- Top Tutorials Section -->
+                    <div class="col-md-6">
+                        <div class="text-white p-4" style="background-color: #3a1d5a;">
+                            <h2>Top Tutorials</h2>
+                            <div id="topTutorialsContainer" runat="server">
+                                <!-- Tutorials will be generated dynamically here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Sidebar Section (Featured Posts and Trending Games) -->
             <aside class="col-md-4">
-                <div class="bg-secondary text-white p-4">
+                <div class="text-white p-4" style="background-color: #3a1d5a;">
                     <p><asp:Literal ID="RegisteredUserCountLiteral" runat="server" /></p>
                     <h2>Most discussed games</h2>
                     <!-- Shows current featured games -->
