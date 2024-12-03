@@ -15,7 +15,7 @@
 
  <style>
      .custom-bg {
-         background-color: #1e6edc !important;
+         background-color: #5a2b91 !important;
      }
  </style>
         <!-- Title Section -->

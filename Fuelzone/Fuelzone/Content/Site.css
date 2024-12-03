@@ -85,3 +85,7 @@ h6 {
     background-color: #2a2a2a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth by default */
 }
+
+.btn-signup:hover {
+    background-color: #5a2b91;
+}
