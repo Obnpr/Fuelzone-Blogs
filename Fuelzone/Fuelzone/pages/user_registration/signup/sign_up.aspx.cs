@@ -71,13 +71,14 @@ namespace Fuelzone.pages.user_registration.signup
                     }
 
                     // Insert new record - no need to specify Id, it will be generated automatically
-                    string insertQuery = "INSERT INTO Account (userId, Username, Email, Password) OUTPUT INSERTED.Id VALUES (@userId, @Username, @Email, @Password)";
+                    string insertQuery = "INSERT INTO Account (userId, Username, Email, Password, admin) OUTPUT INSERTED.Id VALUES (@userId, @Username, @Email, @Password, @Admin)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@userId", userId);
                         cmd.Parameters.AddWithValue("@Username", username);
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@Admin", 0); // Set admin to 0 (FALSE)
 
                         int newUserId = (int)cmd.ExecuteScalar(); // Fetch the new Id
                         if (newUserId > 0)
