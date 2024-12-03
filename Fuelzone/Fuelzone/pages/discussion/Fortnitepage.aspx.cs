@@ -19,8 +19,10 @@ namespace Fuelzone
             if (!IsPostBack)
             {
                 LoadComments();
+
             }
         }
+       
 
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
@@ -31,10 +33,11 @@ namespace Fuelzone
                 if (Session["UserId"] != null)
                 {
                     int userId = (int)Session["UserId"];
-                    int gameId = 4; // ID for Fortnite
+                    int gameId = 2; // ID for Fortnite
                     SaveCommentToDatabase(commentText, userId, gameId);
                     commentInput.Text = ""; // Clear the input field
                     LoadComments(); // Reload the comments to show the new one
+
                 }
                 else
                 {
@@ -72,7 +75,7 @@ namespace Fuelzone
 
         private void LoadComments()
         {
-            int gameId = 4; // ID for Fortnite
+            int gameId = 2; // ID for Fortnite
             var comments = GetCommentsFromDatabase(gameId);
 
             if (comments.Count == 0)

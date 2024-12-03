@@ -19,8 +19,11 @@ namespace Fuelzone
             if (!IsPostBack)
             {
                 LoadComments();
+
             }
         }
+        
+
 
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
@@ -43,6 +46,7 @@ namespace Fuelzone
                 }
             }
         }
+
 
         protected void LikeButton_Click(object sender, EventArgs e)
         {
