@@ -189,40 +189,63 @@ namespace Fuelzone
 
         private void LoadRecommendedGame()
         {
-            // Diccionario de los juegos para "Games You May Like"
-            var recommendedGames = new Dictionary<int, (string GameName, string ImageUrl)>
+            var recommendedGames = new Dictionary<int, (string GameName, string ImageUrl, string PageUrl)>
     {
-        { 4, ("Minecraft", "/Assets/GameArtwork/Minecraft.jpg") },
-        { 5, ("Apex Legends", "/Assets/GameArtwork/Apex.jpg") },
-        { 6, ("The Witcher 3", "/Assets/GameArtwork/TheWitcher3.jpg") },
-        { 7, ("Destiny 2", "/Assets/GameArtwork/Destiny2.jpg") },
-        { 8, ("Path of Exile 2", "/Assets/GameArtwork/PathofExile2.jpg") },
-        { 10,("New World: Aeternum", "/Assets/GameArtwork/NewWorldAeternum.jpg") },
-        { 11,("The Legend of Zelda: Breath of the Wildp", "/Assets/GameArtwork/TheLegendofZeldaBreathoftheWild.jpg") }
+        { 4, ("Minecraft", "/Assets/GameArtwork/Minecraft.jpg","https://www.minecraft.net/es-es") },
+        { 5, ("Apex Legends", "/Assets/GameArtwork/Apex.jpg","https://store.steampowered.com/app/1172470/Apex_Legends/") },
+        { 6, ("The Witcher 3", "/Assets/GameArtwork/TheWitcher3.jpg", "https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/") },
+        { 7, ("Destiny 2", "/Assets/GameArtwork/Destiny2.jpg","https://store.steampowered.com/app/1085660/Destiny_2/") },
+        { 8, ("Path of Exile 2", "/Assets/GameArtwork/PathofExile2.jpg","https://store.steampowered.com/app/2694490/Path_of_Exile_2/") },
+        { 10,("New World: Aeternum", "/Assets/GameArtwork/NewWorldAeternum.jpg","https://store.steampowered.com/app/1063730/New_World_Aeternum/") },
+        { 11, ("The Legend of Zelda: Breath of the Wild", "/Assets/GameArtwork/TheLegendofZeldaBreathoftheWild.jpg", "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-switch/") }
     };
 
             try
             {
-                // Seleccionar un juego aleatorio del diccionario
-                Random random = new Random();
-                var gameIds = recommendedGames.Keys.ToList();
-                int randomGameId = gameIds[random.Next(gameIds.Count)]; // Asegurar que el ID seleccionado esté siempre en la lista
-
-                // Obtener los detalles del juego aleatorio
-                if (recommendedGames.ContainsKey(randomGameId))
+                // Convertir el diccionario a JSON con nombres de propiedades explícitas
+                var jsonGames = Newtonsoft.Json.JsonConvert.SerializeObject(recommendedGames.Values.Select(game => new
                 {
-                    var game = recommendedGames[randomGameId];
-                    StringBuilder html = new StringBuilder();
-                    html.AppendFormat(@"
-                <div class=""text-center mb-4"">
-                    <img src=""{0}"" alt=""{1}"" class=""img-fluid mb-3"" style=""max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;"" />
-                    <h4>{1}</h4>
-                </div>",
-                        game.ImageUrl, game.GameName);
+                    GameName = game.GameName,
+                    ImageUrl = game.ImageUrl,
+                    PageUrl = game.PageUrl
+                }));
 
-                    // Asignar el HTML generado al Literal correspondiente
-                    RecommendedGamesLiteral.Text = html.ToString();
-                }
+                var initialGame = recommendedGames[4]; // Juego inicial predeterminado
+
+                StringBuilder html = new StringBuilder();
+                html.AppendFormat(@"
+<div id=""recommended-container"" class=""text-center mb-4"">
+    <a id=""recommended-link"" href=""{0}"" target=""_blank"">
+        <img id=""recommended-image"" src=""{1}"" alt=""{2}"" class=""img-fluid mb-3"" style=""max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;"" />
+    </a>
+    <h4 id=""recommended-title"">{2}</h4>
+</div>
+<script>
+    var games = {3}; // Juegos en formato JSON
+    var currentIndex = 0;
+
+    function updateGame() {{
+        var container = document.getElementById('recommended-container');
+        var link = document.getElementById('recommended-link');
+        var image = document.getElementById('recommended-image');
+        var title = document.getElementById('recommended-title');
+
+        currentIndex = (currentIndex + 1) % games.length;
+        var game = games[currentIndex];
+
+        link.href = game.PageUrl;
+        image.src = game.ImageUrl;
+        image.alt = game.GameName;
+        title.textContent = game.GameName;
+    }}
+
+    // Cambiar juego cada 10 segundos
+    setInterval(updateGame, 5500);
+</script>",
+                    initialGame.PageUrl, initialGame.ImageUrl, initialGame.GameName, jsonGames);
+
+                // Asignar el HTML generado al Literal correspondiente
+                RecommendedGamesLiteral.Text = html.ToString();
             }
             catch (Exception ex)
             {
@@ -230,11 +253,13 @@ namespace Fuelzone
 
                 // Valor predeterminado en caso de error
                 RecommendedGamesLiteral.Text = @"
-            <div class=""text-center mb-4"">
-                <h4>Game recommendations unavailable</h4>
-                <p>Check back later for more exciting game suggestions!</p>
-            </div>";
+        <div class=""text-center mb-4"">
+            <h4>Game recommendations unavailable</h4>
+            <p>Check back later for more exciting game suggestions!</p>
+        </div>";
             }
         }
+
+
     }
 }
