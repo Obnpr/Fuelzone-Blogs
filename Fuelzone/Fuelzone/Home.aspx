@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container">
+
         <!-- Top Section: Welcome Message -->
         <section class="row mt-3">
             <div class="col-12">
@@ -14,8 +15,10 @@
 
         <!-- Main Content Section -->
         <div class="row mt-4">
+
             <!-- Articles Section (Main Area) -->
             <section class="col-md-8">
+                <!-- What We Provide Section -->
                 <div class="text-white p-4" style="background-color: #3a1d5a;">
                     <h2>What we provide?</h2>
                     <p>We provide high quality tutorial guides, a very in-depth discussions, and more to come!</p>
@@ -30,8 +33,8 @@
                     </p>
                 </div>
 
+                <!-- Top Comments Section Expanded -->
                 <div class="row mt-4">
-                    <!-- Top Comments Section Expanded -->
                     <div class="col-md-12">
                         <div class="text-white p-4" style="background-color: #3a1d5a;">
                             <h2>Top Comments</h2>
@@ -45,6 +48,7 @@
 
             <!-- Sidebar Section (Featured Posts and Trending Games) -->
             <aside class="col-md-4">
+                <!-- Most Discussed Games Section -->
                 <div class="text-white p-4" style="background-color: #3a1d5a;">
                     <p><asp:Literal ID="RegisteredUserCountLiteral" runat="server" /></p>
                     <h2>Most discussed games</h2>

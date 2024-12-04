@@ -22,7 +22,7 @@ namespace Fuelzone.pages.user_registration.signup
             }
         }
 
-        // When user confirms sending input information
+        // When Button gets pressed, runs event
         protected void btnSignup_Click(object sender, EventArgs e)
         {
             // Collecting input values from form fields
@@ -30,7 +30,7 @@ namespace Fuelzone.pages.user_registration.signup
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text;
 
-            // Basic input validation
+            // Input validation
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 lblMessage.Text = "All fields are required!";
@@ -44,12 +44,10 @@ namespace Fuelzone.pages.user_registration.signup
             // Generate a user-friendly unique identifier (userId)
             string userId = GenerateUserId(username);
 
-            // Get the connection string from Web.config
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             try
             {
-                // Connect to the database and insert user details
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -70,7 +68,7 @@ namespace Fuelzone.pages.user_registration.signup
                         }
                     }
 
-                    // Insert new record - no need to specify Id, it will be generated automatically
+                    // Insert new record. no need to specify Id, it'll generate automatically
                     string insertQuery = "INSERT INTO Account (userId, Username, Email, Password, admin) OUTPUT INSERTED.Id VALUES (@userId, @Username, @Email, @Password, @Admin)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
@@ -78,7 +76,7 @@ namespace Fuelzone.pages.user_registration.signup
                         cmd.Parameters.AddWithValue("@Username", username);
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                        cmd.Parameters.AddWithValue("@Admin", 0); // Set admin to 0 (FALSE)
+                        cmd.Parameters.AddWithValue("@Admin", 0); // 0 (FALSE) for default member account
 
                         int newUserId = (int)cmd.ExecuteScalar(); // Fetch the new Id
                         if (newUserId > 0)
@@ -107,9 +105,6 @@ namespace Fuelzone.pages.user_registration.signup
                 // This section will catch any exceptions that occur, such as database connection issues.
                 lblMessage.Text = "An error occurred: " + ex.Message;
                 lblMessage.ForeColor = System.Drawing.Color.Red;
-
-                // Comment: This line could expose sensitive information. In a production environment, avoid showing detailed error messages to the user.
-                // Instead, log the exception details to a secure log file.
             }
         }
 

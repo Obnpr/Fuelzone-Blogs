@@ -2,38 +2,37 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
-        <!-- Title Section -->
-                <!-- Title, Game, Author, and Additional Information -->
-<section class="row mb-4">
-    <div class="col-12">
-        <div class="custom-bg text-white p-4">
-            <h2>Basic Building Techniques</h2>
-            <p><strong>Game:</strong><bold> Fortnite </bold></p>
-            <p><strong>Author:</strong><bold> Gustavo Manfredi </bold></p>
-        </div>
-    </div>
-</section>
 
-<style>
-    .custom-bg {
-        background-color: #5a2b91 !important;
-    }
-</style>
+        <!-- Page Title and Author Information -->
+        <section class="row mb-4">
+            <div class="col-12">
+                <div class="custom-bg text-white p-4">
+                    <h2>Basic Building Techniques</h2>
+                    <p><strong>Game:</strong> <bold>Fortnite</bold></p>
+                    <p><strong>Author:</strong> <bold>Gustavo Manfredi</bold></p>
+                </div>
+            </div>
+        </section>
 
         <!-- Guide Content -->
         <section class="row mb-4">
             <div class="col-12">
                 <div class="bg-light p-4 night-mode-bg">
+                    <!-- Introduction Paragraph -->
                     <p>
                         One of the core mechanics that sets Fortnite apart from other battle royale games is its building system. Being able to build quickly and efficiently can provide you with tactical advantages, whether it's for defense, high ground, or controlling the flow of a fight. In this guide, we'll cover the basic building techniques every Fortnite player should know to start building with confidence and gaining an edge in battles.
                     </p>
 
+                    <!-- Why Building is Essential -->
                     <h3>Why Building is Essential in Fortnite</h3>
                     <p>
                         Building is a key aspect of Fortnite gameplay. Unlike other battle royale games where the focus is purely on gunplay, Fortnite requires players to think on their feet and use their building skills to gain advantages. Whether it's building a quick defense wall, ramping up to high ground, or creating a complete fortress, building can be the difference between life and death in Fortnite.
                     </p>
 
+                    <!-- Essential Building Techniques Section -->
                     <h3>Essential Building Techniques</h3>
+
+                    <!-- Technique 1: 1x1 Tower -->
                     <h4>1. The 1x1 Tower</h4>
                     <p>
                         The 1x1 tower is one of the most common and essential building techniques in Fortnite. It's quick to build and provides you with immediate elevation and cover. To build a 1x1 tower:
@@ -46,6 +45,7 @@
                     </ul>
                     <p>Once completed, you can edit the walls or ramps to give yourself better sight lines or escape routes.</p>
 
+                    <!-- Technique 2: Ramp Rush -->
                     <h4>2. Ramp Rush (Aggressive Push)</h4>
                     <p>
                         The ramp rush is an aggressive building technique used to quickly close the gap between you and your opponent while protecting yourself from their shots. It’s great for pushing into enemy territory and gaining high ground during combat. To perform a ramp rush:
@@ -57,6 +57,7 @@
                     </ul>
                     <p>The key is to keep the pressure on your opponent while minimizing your exposure to incoming fire. Practice this technique to move fast while maintaining protection!</p>
 
+                    <!-- Technique 3: Box Fighting -->
                     <h4>3. Box Fighting (Creating and Defending a Box)</h4>
                     <p>
                         Box fighting is a fundamental skill for Fortnite players. It allows you to quickly build a defensive structure to heal, reload, or outsmart your opponent. The key to box fighting is to create a box-shaped structure quickly and use edits to outmaneuver the enemy. Here’s how to build a box:
@@ -68,6 +69,7 @@
                     </ul>
                     <p>This technique is especially useful in close-range combat. Use it to surprise your opponents, heal up, and reset the fight on your terms.</p>
 
+                    <!-- Technique 4: Quick Wall and Ramp -->
                     <h4>4. Quick Wall and Ramp (Defensive Technique)</h4>
                     <p>
                         This defensive technique is used to protect yourself when you're under attack, especially in the middle of a fight. If you’re getting shot at or need to protect yourself, you can quickly build walls and ramps to block shots. Here's how:
@@ -79,6 +81,7 @@
                     </ul>
                     <p>This technique helps you stall your opponent while you heal, reload, or rethink your strategy. It’s useful for recovering from mistakes or re-engaging on your terms.</p>
 
+                    <!-- Technique 5: Using Platforms and Ramps for Elevation -->
                     <h4>5. Using Platforms and Ramps for Elevation</h4>
                     <p>
                         Elevation is crucial in Fortnite battles. High ground gives you an advantage in combat by offering better sightlines and allowing you to shoot down on opponents. To gain elevation:
@@ -90,11 +93,13 @@
                     </ul>
                     <p>Always try to maintain the high ground, as it can give you the edge in battles. If you're on lower ground, don’t be afraid to build ramps to gain elevation quickly.</p>
 
+                    <!-- Practice Section -->
                     <h3>Practice Makes Perfect</h3>
                     <p>
                         Building can feel overwhelming at first, but the more you practice, the more instinctive it becomes. Spend time in Fortnite's Creative Mode to experiment with different building techniques and build muscle memory. Start with the basic structures and gradually add more complexity as you get comfortable. Eventually, building will feel like second nature, and you'll be able to outbuild your opponents in the heat of battle.
                     </p>
 
+                    <!-- Conclusion Section -->
                     <h4>Conclusion</h4>
                     <p>
                         Building in Fortnite is a game-changer, and mastering the basic techniques is essential for improving your gameplay. From building defensive 1x1 towers to aggressive ramp rushing, mastering these techniques will give you the edge in any fight. Keep practicing, experiment with different strategies, and soon you’ll be building like a pro!
@@ -103,11 +108,16 @@
             </div>
         </section>
 
+        <!-- Styling -->
         <style>
             .night-mode-bg {
                 background-color: #2a2a2a !important;
                 color: #e0e0e0 !important;
             }
+            .custom-bg {
+                background-color: #5a2b91 !important;
+            }
         </style>
+
     </main>
 </asp:Content>

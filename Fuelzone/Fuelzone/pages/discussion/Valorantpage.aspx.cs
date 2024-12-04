@@ -8,23 +8,23 @@ namespace Fuelzone
 {
     public partial class Contact : System.Web.UI.Page
     {
+        // Override OnInit to attach Page_Load event
         protected override void OnInit(EventArgs e)
         {
             this.Load += new EventHandler(Page_Load_Valorant);
             base.OnInit(e);
         }
 
+        // If first time load, loads the current comments
         protected void Page_Load_Valorant(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadComments();
-
             }
         }
-        
 
-
+        // Submitting a comment handler
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
             string commentText = commentInput.Text;
@@ -47,7 +47,7 @@ namespace Fuelzone
             }
         }
 
-
+        //  Liking button handler
         protected void LikeButton_Click(object sender, EventArgs e)
         {
             if (Session["UserId"] != null)
@@ -74,6 +74,7 @@ namespace Fuelzone
             }
         }
 
+        // Load Comments from Database using Repeaters
         private void LoadComments()
         {
             int gameId = 1;
@@ -99,6 +100,7 @@ namespace Fuelzone
             }
         }
 
+        // Save Comment to Database
         private void SaveCommentToDatabase(string commentText, int userId, int gameId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -126,6 +128,7 @@ namespace Fuelzone
             }
         }
 
+        // Add Like to Database
         private void AddLikeToDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -144,6 +147,7 @@ namespace Fuelzone
             }
         }
 
+        // Remove Like from Database
         private void RemoveLikeFromDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -162,6 +166,7 @@ namespace Fuelzone
             }
         }
 
+        // Check if User has Liked a Comment
         private bool UserHasLikedComment(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -180,6 +185,7 @@ namespace Fuelzone
             }
         }
 
+        // Get Comments from Database
         private List<Comment1> GetCommentsFromDatabase(int gameId)
         {
             var comments = new List<Comment1>();
@@ -221,9 +227,9 @@ namespace Fuelzone
 
             return comments;
         }
-
     }
 
+    // Comment Class
     public class Comment1
     {
         public int CommentId { get; set; }

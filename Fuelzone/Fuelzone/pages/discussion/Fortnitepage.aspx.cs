@@ -8,22 +8,23 @@ namespace Fuelzone
 {
     public partial class FortnitePage : System.Web.UI.Page
     {
+        // Override OnInit to attach Page_Load event
         protected override void OnInit(EventArgs e)
         {
             this.Load += new EventHandler(Page_Load_Fortnite);
             base.OnInit(e);
         }
 
+        // If first time on page, loads comments
         protected void Page_Load_Fortnite(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadComments();
-
             }
         }
-       
 
+        // Handles the submission of a new comment
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
             string commentText = commentInput.Text;
@@ -34,10 +35,10 @@ namespace Fuelzone
                 {
                     int userId = (int)Session["UserId"];
                     int gameId = 2; // ID for Fortnite
+
                     SaveCommentToDatabase(commentText, userId, gameId);
                     commentInput.Text = ""; // Clear the input field
                     LoadComments(); // Reload the comments to show the new one
-
                 }
                 else
                 {
@@ -47,6 +48,7 @@ namespace Fuelzone
             }
         }
 
+        // Handles the click to like button
         protected void LikeButton_Click(object sender, EventArgs e)
         {
             if (Session["UserId"] != null)
@@ -73,6 +75,7 @@ namespace Fuelzone
             }
         }
 
+        // Loads all comments for the game from the database
         private void LoadComments()
         {
             int gameId = 2; // ID for Fortnite
@@ -98,6 +101,7 @@ namespace Fuelzone
             }
         }
 
+        // Saves a comment to the database
         private void SaveCommentToDatabase(string commentText, int userId, int gameId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -125,6 +129,7 @@ namespace Fuelzone
             }
         }
 
+        // Adds a like to a comment in the database
         private void AddLikeToDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -143,6 +148,7 @@ namespace Fuelzone
             }
         }
 
+        // Removes a like from a comment in the database
         private void RemoveLikeFromDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -161,6 +167,7 @@ namespace Fuelzone
             }
         }
 
+        // Checks if the user has already liked the comment
         private bool UserHasLikedComment(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -179,10 +186,10 @@ namespace Fuelzone
             }
         }
 
+        // Retrieves comments for Fortnite in the database
         private List<Comment> GetCommentsFromDatabase(int gameId)
         {
             var comments = new List<Comment>();
-
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -222,6 +229,7 @@ namespace Fuelzone
         }
     }
 
+    // Class representing a comment
     public class Comment
     {
         public int CommentId { get; set; }

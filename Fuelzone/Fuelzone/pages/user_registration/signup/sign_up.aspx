@@ -3,6 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4">
         <div class="row justify-content-center">
+            
+            <!-- Sign-Up Title -->
             <h2 class="text-center sign-up-heading">Sign Up</h2>
 
             <!-- Username Input -->
@@ -28,7 +30,7 @@
                 <asp:Button ID="btnSignup" runat="server" Text="Sign Up" OnClick="btnSignup_Click" CssClass="btn btn-primary btn-block btn-signup" />
             </div>
 
-            <!-- Message Label -->
+            <!-- Message Label for status messages -->
             <div class="form-group text-center">
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger"></asp:Label>
             </div>

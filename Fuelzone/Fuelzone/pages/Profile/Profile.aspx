@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Fuelzone.Profile" %>
 
 <asp:Content ID="ProfileContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <main class="container">
-        <!-- Top Section: User Information -->
+        
+        <!-- User Information -->
         <section class="row mt-3">
             <div class="col-12">
                 <div class="bg-secondary text-white p-4">
@@ -14,9 +16,8 @@
             </div>
         </section>
 
-        <!-- Main Content Section -->
         <div class="row mt-4">
-            <!-- User Comments Section -->
+            <!-- User Comments History -->
             <section class="col-md-12">
                 <div class="bg-secondary text-white p-4">
                     <h2>Your Comments History</h2>
@@ -25,6 +26,8 @@
                     </div>
                 </div>
             </section>
+
         </div>
     </main>
+
 </asp:Content>

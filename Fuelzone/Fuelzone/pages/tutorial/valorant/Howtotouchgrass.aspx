@@ -15,12 +15,6 @@
             </div>
         </section>
 
-        <style>
-            .custom-bg {
-                background-color: #5a2b91 !important;
-            }
-        </style>
-
         <!-- Guide Content -->
         <section class="row mb-4">
             <div class="col-12">
@@ -32,6 +26,8 @@
                     <p>
                         Whether you’re grinding through tough matches in Valorant or just spending hours on end immersed in your favorite games, it’s crucial to remember that a healthy mindset can make all the difference. "Touching grass" is more than just a meme — it's a gentle reminder to experience life beyond the screen, to feel the sunshine, and to gain a new perspective that will ultimately make you a better player. So, let’s dive in and see how taking this small step can make a big impact on both your gameplay and your overall happiness.
                     </p>
+
+
                     <h3>Guide Content</h3>
                     <p>
                         Sometimes, we gamers need a little reminder to step away from the screen and get some fresh air.
@@ -45,9 +41,11 @@
                     </ul>
                     <p>Whether you're struggling with a difficult ranked game or just need a mental reset, these tips will help you refresh and return to the game stronger.</p>
 
+
                     <h4>Why "Touching Grass" Helps Improve Your Gameplay</h4>
                     <p>Valorant is a game of milliseconds, where quick reactions and precise aim make the difference between victory and defeat. However, endless grinding can lead to burnout, fatigue, and even worse—tilt. By taking time to go outside and literally "touch grass," you can give yourself a mental and physical reset that helps reduce stress, boost mood, and improve overall focus.</p>
                     <p>Fresh air, natural light, and a change of scenery can enhance your mental clarity, which in turn leads to better decision-making and faster reactions in-game. Plus, the simple act of stepping away from the monitor allows your eyes to rest, reducing eye strain and giving your body a chance to move.</p>
+
 
                     <h4>How to Integrate Short Breaks Into Your Gaming Routine</h4>
                     <p>Breaks are essential, but they can be hard to take when you’re in the middle of a heated match or on a winning streak. Here's how you can efficiently integrate these breaks:</p>
@@ -57,6 +55,7 @@
                         <li><strong>Use Agent Selection Wisely:</strong> During the agent selection phase, take deep breaths and practice small stretches at your desk. A minute here or there adds up and helps maintain flexibility.</li>
                     </ul>
 
+
                     <h4>Exercises and Stretches for Valorant Players</h4>
                     <p>Spending hours sitting can be hard on your body, so pairing grass-touching breaks with some simple stretches can make a big difference. Try these:</p>
                     <ul>
@@ -65,6 +64,7 @@
                         <li><strong>Wrist Circles:</strong> Valorant demands a lot from your hands and wrists. Take time to gently roll your wrists in circles to maintain flexibility and prevent strain.</li>
                         <li><strong>Leg Stretches:</strong> Stand up and do some simple leg stretches. Touch your toes, or lean against a wall and stretch out your calves. Keeping your legs from getting stiff will help maintain overall comfort during long gaming sessions.</li>
                     </ul>
+
 
                     <h4>Maximize Your Break Time: A Valorant Player's Touch Grass Routine</h4>
                     <p>If you want to really maximize the benefits of stepping away, try setting up a "touch grass" routine:</p>
@@ -78,13 +78,16 @@
             </div>
         </section>
 
-<style>
-    .night-mode-bg {
-        background-color: #2a2a2a !important;
-        color: #e0e0e0 !important;
-    }
-</style>
-
+        <!-- Styling -->
+        <style>
+            .night-mode-bg {
+                background-color: #2a2a2a !important;
+                color: #e0e0e0 !important;
+            }
+            .custom-bg {
+                background-color: #5a2b91 !important;
+            }
+        </style>
 
     </main>
 </asp:Content>

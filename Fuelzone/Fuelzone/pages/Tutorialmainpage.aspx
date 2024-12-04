@@ -2,43 +2,48 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
+        
         <!-- Title Section -->
         <section class="row">
             <div class="col-12">
-                <h2>List</h2>
+                <h2>Game List</h2>
             </div>
         </section>
 
+        <!-- Main Content Section -->
         <div class="row mt-4">
-            <!-- Game Icons/Categories -->
+            <!-- Game Icons/Categories Section -->
             <section class="col-md-8">
                 <div class="p-4">
                     <div class="row">
-                        <!-- Example Game Icons -->
+                        <!-- BO6 -->
                         <div class="col-sm-4 mb-3 text-center">
                             <a href="/pages/tutorial/CODBlackOps6page">
                                 <img src="/Assets/GameArtwork/CODBlackOps6.jpg" class="img-fluid" alt="Call of Duty: Black Ops 6" />
                             </a>
                             <h5>Call of Duty: Black Ops 6</h5>
                         </div>
+                        <!-- Fortnite -->
                         <div class="col-sm-4 mb-3 text-center">
                             <a href="/pages/tutorial/Fortnitepage">
                                 <img src="/Assets/GameArtwork/Fortnite.jpg" class="img-fluid" alt="Fortnite" />
                             </a>
                             <h5>Fortnite</h5>
                         </div>
+                        <!-- Valorant -->
                         <div class="col-sm-4 mb-3 text-center">
                             <a href="/pages/tutorial/Valorantpage">
                                 <img src="/Assets/GameArtwork/Valorant.jpg" class="img-fluid" alt="Valorant" />
                             </a>
                             <h5>Valorant</h5>
                         </div>
-                        <!-- Add more games here -->
+                        
+
                     </div>
                 </div>
             </section>
 
-            <!-- Featured Game Tut. -->
+            <!-- Featured-Game Section -->
             <aside class="col-md-4">
                 <div class="bg-custom text-white p-4 d-flex flex-column align-items-center justify-content-center text-center">
                     <h4>Featured game</h4>
@@ -52,9 +57,11 @@
                     </ul>
                 </div>
             </aside>
+            
         </div>
     </main>
 
+    <!-- Styles -->
     <style>
         .bg-custom {
             background-color: #5a2b91;

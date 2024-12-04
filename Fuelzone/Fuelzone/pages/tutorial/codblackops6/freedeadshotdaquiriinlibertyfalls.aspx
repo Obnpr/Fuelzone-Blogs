@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
         
+        <!-- Section: Header Information -->
         <section class="row mb-4">
             <div class="col-12">
                 <div class="custom-bg text-white p-4">
@@ -14,16 +15,11 @@
             </div>
         </section>
 
-        <style>
-            .custom-bg {
-                background-color: #5a2b91 !important;
-            }
-        </style>
-
-        <!-- Guide Content -->
+        <!-- Guide content -->
         <section class="row mb-4">
             <div class="col-12">
                 <div class="bg-light p-4 night-mode-bg">
+
                     <h3>Introduction</h3>
                     <p>
                         The Black Ops 6 Zombies Deadshot Daiquiri usually takes a while to unlock, but there’s a way you can get it within minutes. Deadshot Daiquiri is a perk that increases enemy critical damage. As well as that, aiming down sights snaps to an enemy’s critical point.
@@ -32,6 +28,8 @@
                         While you can find it on the Terminus map, it’s not available on Liberty Falls. That is, unless you do this one easy trick. So, here’s how to get the Deadshot Daiquiri.
                     </p>
                     <hr>
+
+
                     <h4>Guide Content</h4>
                     <h5>Step-by-Step Guide to Unlock Deadshot Daiquiri</h5>
                     <ol>
@@ -51,6 +49,8 @@
                             <strong>Shoot the Cans:</strong> Shoot these five cans, and you’ll be rewarded with a free Deadshot Daiquiri.
                         </li>
                     </ol>
+
+
                     <h5>Tips for Success</h5>
                     <p>
                         Enemies will be attacking you as you do this, which is why it’s easier to pull this off when you’re in a squad. One player can hold off the zombies while another shoots the cans, or vice versa. Additionally, be mindful that your sniper rifle only has five bullets, and there are five cans, meaning you have to hit a can with every bullet. If you miss, the cans will disappear, but they will respawn after a few minutes so you can try again.
@@ -62,11 +62,16 @@
             </div>
         </section>
 
+        <!-- Styles -->
         <style>
             .night-mode-bg {
                 background-color: #2a2a2a !important;
                 color: #e0e0e0 !important;
             }
+            .custom-bg {
+                background-color: #5a2b91 !important;
+            }
         </style>
+        
     </main>
 </asp:Content>

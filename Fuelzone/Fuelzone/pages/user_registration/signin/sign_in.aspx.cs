@@ -13,6 +13,7 @@ namespace Fuelzone.pages.user_registration.signin
 {
     public partial class Sign_in : System.Web.UI.Page
     {
+        // Page Load
         protected void Page_Load(object sender, EventArgs e)
         {
             // If user is already logged in, redirect them to the home page
@@ -22,14 +23,14 @@ namespace Fuelzone.pages.user_registration.signin
             }
         }
 
-        // When the user submits the login form
+        // Button click handler
         protected void btnSignin_Click(object sender, EventArgs e)
         {
             // Collecting input values from form fields
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text;
 
-            // Basic input validation
+            // Input validation
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 lblMessage.Text = "Email and Password are required!";
@@ -37,20 +38,18 @@ namespace Fuelzone.pages.user_registration.signin
                 return;
             }
 
-            // Hash the entered password
+            // Hash the entered password for comparison
             string hashedPassword = HashPassword(password);
 
-            // Get the connection string from Web.config
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             try
             {
-                // Connect to the database and verify user credentials
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Check if the email and password match any record in the database
+                    // SQL query to check if the email and hashed password match any record in the database
                     string query = "SELECT Id, Username FROM Account WHERE Email = @Email AND Password = @Password";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -61,6 +60,7 @@ namespace Fuelzone.pages.user_registration.signin
                         {
                             if (reader.Read())
                             {
+                                // Retrieve user details from the query result
                                 int userId = reader.GetInt32(0); // Get the Id column
                                 string username = reader.GetString(1); // Get the Username column
 
@@ -74,6 +74,7 @@ namespace Fuelzone.pages.user_registration.signin
                             }
                             else
                             {
+                                // Display error message if credentials are incorrect
                                 lblMessage.Text = "Invalid email or password.";
                                 lblMessage.ForeColor = System.Drawing.Color.Red;
                             }
@@ -83,26 +84,26 @@ namespace Fuelzone.pages.user_registration.signin
             }
             catch (Exception ex)
             {
-                // Handle exceptions (e.g., database connection issues)
+                // Handle exceptions. Like database connection issues
                 lblMessage.Text = "An error occurred: " + ex.Message;
                 lblMessage.ForeColor = System.Drawing.Color.Red;
-
-                // Comment: In production, log the error instead of showing it to the user
             }
         }
 
-        // Method to hash the password
+        // Method to hash the password using SHA256
         private string HashPassword(string password)
         {
-            // Use SHA256 to hash the password securely
             using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
                 StringBuilder builder = new StringBuilder();
+
+                // Convert each byte to a hexadecimal string
                 foreach (byte b in bytes)
                 {
                     builder.Append(b.ToString("x2"));
                 }
+
                 return builder.ToString();
             }
         }

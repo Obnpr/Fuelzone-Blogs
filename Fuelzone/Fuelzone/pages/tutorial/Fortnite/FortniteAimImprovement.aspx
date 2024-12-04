@@ -2,23 +2,19 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
-         <!-- Title, Game, Author, and Additional Information -->
- <section class="row mb-4">
-     <div class="col-12">
-         <div class="custom-bg text-white p-4">
-             <h2>Fortnite Aim Improvement Guide</h2>
-             <p><strong>Game:</strong><bold> Fortnite </bold></p>
-             <p><strong>Author:</strong><bold> Gustavo Manfredi </bold></p>
-         </div>
-     </div>
- </section>
+        
+        <!-- Header Information -->
+        <section class="row mb-4">
+            <div class="col-12">
+                <div class="custom-bg text-white p-4">
+                    <h2>Fortnite Aim Improvement Guide</h2>
+                    <p><strong>Game:</strong><bold> Fortnite </bold></p>
+                    <p><strong>Author:</strong><bold> Gustavo Manfredi </bold></p>
+                </div>
+            </div>
+        </section>
 
- <style>
-     .custom-bg {
-         background-color: #5a2b91 !important;
-     }
- </style>
-        <!-- Title Section -->
+        <!-- Title  -->
         <section class="row">
             <div class="col-12">
                 <h2>Improve Your Aim in Fortnite</h2>
@@ -29,14 +25,19 @@
         <section class="row mb-4">
             <div class="col-12">
                 <div class="bg-light p-4 night-mode-bg">
+                    
+                    <!-- Introduction -->
                     <p>
                         Having good aim is critical in Fortnite, where each shot counts. Whether you're engaging in a close-range battle or long-range combat, your ability to land shots accurately can determine the outcome of a match. In this guide, we'll explore essential tips, training exercises, and strategies to help you improve your aim and become a more effective fighter in Fortnite.
                     </p>
+
+                    <!-- Importance of Aim -->
                     <h3>Why Aim Is Crucial in Fortnite</h3>
                     <p>
                         In Fortnite, combat can happen at any distance, and having sharp aim ensures you can consistently hit your targets. Whether you're using a shotgun for close-range fights or a sniper for long-range engagements, improving your aim helps you deal more damage and secure eliminations.
                     </p>
 
+                    <!-- Essential Tips for Improving Aim -->
                     <h4>Essential Tips for Improving Your Aim</h4>
                     <ul>
                         <li><strong>Sensitivity Settings:</strong> Your sensitivity settings play a massive role in your ability to aim accurately. Find a balance that feels comfortable for you.</li>
@@ -46,6 +47,7 @@
                         <li><strong>Use the Right Weapon:</strong> Choose the appropriate weapon for different situations to maintain accuracy.</li>
                     </ul>
 
+                    <!-- Training Exercises -->
                     <h4>Training Your Aim: Exercises and Practice Routines</h4>
                     <p>
                         <strong>Creative Mode Aim Training:</strong> Use Creative Mode to practice shooting at moving targets and simulate real combat scenarios.
@@ -57,6 +59,7 @@
                         <strong>Build and Edit with Aim in Mind:</strong> Incorporate aiming practice with building and editing to simulate actual combat situations.
                     </p>
 
+                    <!-- Advanced Techniques -->
                     <h4>Advanced Techniques to Sharpen Your Aim</h4>
                     <ul>
                         <li><strong>Flick Shots:</strong> Quickly move your crosshair to an enemy target and shoot in one motion.</li>
@@ -64,6 +67,7 @@
                         <li><strong>Adjusting for Lag and Ping:</strong> Practice compensating for lag or high ping when aiming at moving targets.</li>
                     </ul>
 
+                    <!-- Conclusion -->
                     <p>
                         Consistency is key when improving your aim. Spend time each day practicing in Creative Mode and using aim trainers to sharpen your skills.
                     </p>
@@ -71,11 +75,16 @@
             </div>
         </section>
 
+        <!-- Styling -->
         <style>
             .night-mode-bg {
                 background-color: #2a2a2a !important;
                 color: #e0e0e0 !important;
             }
+            .custom-bg {
+                background-color: #5a2b91 !important;
+            }
         </style>
+
     </main>
 </asp:Content>

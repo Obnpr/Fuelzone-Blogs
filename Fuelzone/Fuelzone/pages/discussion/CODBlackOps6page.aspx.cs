@@ -7,53 +7,63 @@ namespace Fuelzone
 {
     public partial class CODBlackOps6page : System.Web.UI.Page
     {
+        // Override OnInit to attach Page_Load event
         protected override void OnInit(EventArgs e)
         {
             this.Load += new EventHandler(Page_Load_CODBlackOps6);
             base.OnInit(e);
         }
 
+        // First time loading handler
         protected void Page_Load_CODBlackOps6(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadComments();
-              
             }
         }
 
-       
-
+        // Post Comment button event
         protected void SubmitCommentButton_Click(object sender, EventArgs e)
         {
             string commentText = commentInput.Text;
 
+            // Validate that the comment text is not empty
             if (!string.IsNullOrWhiteSpace(commentText))
             {
+                // Check if the user is logged in
                 if (Session["UserId"] != null)
                 {
                     int userId = (int)Session["UserId"];
-                    int gameId = 3; // ID para CODBlackOps6
+                    int gameId = 3; // Game ID for CODBlackOps6
+
+                    // Save the comment to the database
                     SaveCommentToDatabase(commentText, userId, gameId);
+
+                    // Clear the input field and reload comments
                     commentInput.Text = "";
                     LoadComments();
                 }
                 else
                 {
+                    // Display a message if the user is not logged in
                     lblMessage.Text = "You must be logged in to leave a comment.";
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
 
+        // Like button click event
         protected void LikeButton_Click(object sender, EventArgs e)
         {
+            // Check if the user is logged in
             if (Session["UserId"] != null)
             {
                 int userId = (int)Session["UserId"];
                 var button = (System.Web.UI.WebControls.Button)sender;
                 int commentId = int.Parse(button.CommandArgument);
 
+                // Toggle like status
                 if (UserHasLikedComment(userId, commentId))
                 {
                     RemoveLikeFromDatabase(userId, commentId);
@@ -63,24 +73,29 @@ namespace Fuelzone
                     AddLikeToDatabase(userId, commentId);
                 }
 
+                // Reload comments to reflect updated like count
                 LoadComments();
             }
             else
             {
+                // Display a message if the user is not logged in
                 lblMessage.Text = "You must be logged in to like a comment.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
 
+        // Load comments from the database
         private void LoadComments()
         {
-            int gameId = 3;  // ID del juego CODBlackOps6
+            int gameId = 3;  // Game ID for CODBlackOps6
             var comments = GetCommentsFromDatabase(gameId);
 
+            // Bind the comments to the repeater control
             CommentsRepeater.DataSource = comments;
             CommentsRepeater.DataBind();
         }
 
+        // Save a comment to the database
         private void SaveCommentToDatabase(string commentText, int userId, int gameId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -107,10 +122,10 @@ namespace Fuelzone
             }
         }
 
+        // Get comments from the database
         private List<Comment2> GetCommentsFromDatabase(int gameId)
         {
             var comments = new List<Comment2>();
-
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -126,8 +141,8 @@ namespace Fuelzone
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@gameId", gameId);
-
                     conn.Open();
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -149,6 +164,7 @@ namespace Fuelzone
             return comments;
         }
 
+        // Add a like to the database
         private void AddLikeToDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -167,6 +183,7 @@ namespace Fuelzone
             }
         }
 
+        // Remove a like from the database
         private void RemoveLikeFromDatabase(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -185,6 +202,7 @@ namespace Fuelzone
             }
         }
 
+        // Check if the user has already liked the comment
         private bool UserHasLikedComment(int userId, int commentId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["User_account"].ConnectionString;
@@ -205,6 +223,7 @@ namespace Fuelzone
         }
     }
 
+    // Comment class to hold comment data
     public class Comment2
     {
         public int CommentId { get; set; }

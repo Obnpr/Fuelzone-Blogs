@@ -2,16 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container mt-4" aria-labelledby="title">
-        <!-- Title Section -->
+        
+        <!-- Title  -->
         <section class="row">
             <div class="col-12">
                 <h2>Valorant Tutorials</h2>
             </div>
         </section>
 
+        <!-- Tutorials Listings -->
         <div class="row mt-4">
             <div class="col-12">
                 <div class="row">
+                    
+                    <!-- Basic Tips and Tricks Tutorial -->
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
@@ -26,10 +30,11 @@
                         </div>
                     </div>
 
+                    <!-- How to Touch Grass Tutorial -->
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
-                                <h3 class="card-title">How to touch grass</h3>
+                                <h3 class="card-title">How to Touch Grass</h3>
                                 <p class="card-text">
                                     Learn all about touching grass, its benefits, different situations where you might need to touch some grass, and more.
                                 </p>
@@ -40,7 +45,7 @@
                         </div>
                     </div>
 
-                    <!-- For more tut. post -->
+
                 </div>
             </div>
         </div>
