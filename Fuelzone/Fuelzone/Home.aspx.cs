@@ -96,23 +96,27 @@ namespace Fuelzone
                 { 3, ("Call of Duty: Black Ops 6", "/Assets/GameArtwork/CODBlackOps6.jpg", "/pages/tutorial/codblackops6page") },
             };
 
-            string htmlContent = "<div class=\"row\">";
+            var htmlContent = new StringBuilder();
+            htmlContent.Append("<div class=\"row\">");
+
             foreach (var gameId in gameIds)
             {
                 if (gameDetails.ContainsKey(gameId))
                 {
                     var details = gameDetails[gameId];
-                    htmlContent += $"<div class=\"col-md-4 mb-3 text-center\">" +
-                                   $"<a href=\"{details.PageUrl}\">" +
-                                   $"<img src=\"{details.ImageUrl}\" class=\"img-fluid\" alt=\"{details.GameName}\" />" +
-                                   "</a>" +
-                                   $"<h5>{details.GameName}</h5>" +
-                                   "</div>";
+                    htmlContent.Append($@"
+                        <div class='col-md-4 mb-3 text-center'>
+                            <a href='{details.PageUrl}'>
+                                <img src='{details.ImageUrl}' class='img-fluid' alt='{details.GameName}' />
+                            </a>
+                            <h5>{details.GameName}</h5>
+                        </div>");
                 }
             }
-            htmlContent += "</div>";
 
-            MostDiscussedGameLiteral.Text = htmlContent;
+            htmlContent.Append("</div>");
+
+            MostDiscussedGameLiteral.Text = htmlContent.ToString();
         }
 
         // Load the top comments from the database
@@ -170,11 +174,12 @@ namespace Fuelzone
 
                             string gameLink = $"{gameUrl}?commentId={commentId}";
 
-                            html.Append("<div class='comment-box' style='border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;'>");
-                            html.Append($"<h5 style='font-size:20px; font-weight:bold;'><a href='{gameLink}' style='color:{gameColor}; text-decoration:none;'>{gameName}</a></h5>");
-                            html.Append($"<p style='margin:5px 0;'><strong>{username}</strong>: {commentText}</p>");
-                            html.Append($"<p style='color:white; margin:5px 0;'>👍Likes: {likesCount}</p>");
-                            html.Append("</div>");
+                            html.Append($@"
+                                <div class='comment-box' style='border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;'>
+                                    <h5 style='font-size:20px; font-weight:bold;'><a href='{gameLink}' style='color:{gameColor}; text-decoration:none;'>{gameName}</a></h5>
+                                    <p style='margin:5px 0;'><strong>{username}</strong>: {commentText}</p>
+                                    <p style='color:white; margin:5px 0;'>👍Likes: {likesCount}</p>
+                                </div>");
                         }
                         html.Append("</div>");
 
@@ -215,19 +220,18 @@ namespace Fuelzone
                 var initialGame = recommendedGames[4]; // Default initial game
 
                 StringBuilder html = new StringBuilder();
-                html.AppendFormat(@"
-<div id=\"recommended-container\" class=\"text-center mb-4\">
-    <a id=\"recommended-link\" href=\"{0}\" target=\"_blank\">
-        <img id=\"recommended-image\" src=\"{1}\" alt=\"{2}\" class=\"img-fluid mb-3\" style=\"max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;\" />
+                html.Append($@"
+<div id='recommended-container' class='text-center mb-4'>
+    <a id='recommended-link' href='{initialGame.PageUrl}' target='_blank'>
+        <img id='recommended-image' src='{initialGame.ImageUrl}' alt='{initialGame.GameName}' class='img-fluid mb-3' style='max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;' />
     </a>
-    <h4 id=\"recommended-title\">{2}</h4>
+    <h4 id='recommended-title'>{initialGame.GameName}</h4>
 </div>
 <script>
-    var games = {3}; // Games in JSON format
+    var games = {jsonGames}; // Games in JSON format
     var currentIndex = 0;
 
     function updateGame() {{
-        var container = document.getElementById('recommended-container');
         var link = document.getElementById('recommended-link');
         var image = document.getElementById('recommended-image');
         var title = document.getElementById('recommended-title');
@@ -241,12 +245,10 @@ namespace Fuelzone
         title.textContent = game.GameName;
     }}
 
-    // Change game every 5.5 sec
+    // Change game every 5.5 seconds
     setInterval(updateGame, 5500);
-</script>",
-                    initialGame.PageUrl, initialGame.ImageUrl, initialGame.GameName, jsonGames);
+</script>");
 
-                // Assign the generated HTML to the corresponding Literal
                 RecommendedGamesLiteral.Text = html.ToString();
             }
             catch (Exception ex)
@@ -255,7 +257,7 @@ namespace Fuelzone
 
                 // Default value in case of error
                 RecommendedGamesLiteral.Text = @"
-                <div class=\"text-center mb-4\">
+                <div class='text-center mb-4'>
                     <h4>Game recommendations unavailable</h4>
                     <p>Check back later for more exciting game suggestions!</p>
                 </div>";
