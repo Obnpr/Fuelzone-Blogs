@@ -221,33 +221,33 @@ namespace Fuelzone
 
                 StringBuilder html = new StringBuilder();
                 html.Append($@"
-<div id='recommended-container' class='text-center mb-4'>
-    <a id='recommended-link' href='{initialGame.PageUrl}' target='_blank'>
-        <img id='recommended-image' src='{initialGame.ImageUrl}' alt='{initialGame.GameName}' class='img-fluid mb-3' style='max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;' />
-    </a>
-    <h4 id='recommended-title'>{initialGame.GameName}</h4>
-</div>
-<script>
-    var games = {jsonGames}; // Games in JSON format
-    var currentIndex = 0;
+                    <div id='recommended-container' class='text-center mb-4'>
+                        <a id='recommended-link' href='{initialGame.PageUrl}' target='_blank'>
+                            <img id='recommended-image' src='{initialGame.ImageUrl}' alt='{initialGame.GameName}' class='img-fluid mb-3' style='max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;' />
+                        </a>
+                        <h4 id='recommended-title'>{initialGame.GameName}</h4>
+                    </div>
+                    <script>
+                        var games = {jsonGames}; // Games in JSON format
+                        var currentIndex = 0;
 
-    function updateGame() {{
-        var link = document.getElementById('recommended-link');
-        var image = document.getElementById('recommended-image');
-        var title = document.getElementById('recommended-title');
+                        function updateGame() {{
+                            var link = document.getElementById('recommended-link');
+                            var image = document.getElementById('recommended-image');
+                            var title = document.getElementById('recommended-title');
 
-        currentIndex = (currentIndex + 1) % games.length;
-        var game = games[currentIndex];
+                            currentIndex = (currentIndex + 1) % games.length;
+                            var game = games[currentIndex];
 
-        link.href = game.PageUrl;
-        image.src = game.ImageUrl;
-        image.alt = game.GameName;
-        title.textContent = game.GameName;
-    }}
+                            link.href = game.PageUrl;
+                            image.src = game.ImageUrl;
+                            image.alt = game.GameName;
+                            title.textContent = game.GameName;
+                        }}
 
-    // Change game every 5.5 seconds
-    setInterval(updateGame, 5500);
-</script>");
+                        // Change game every 5.5 seconds
+                        setInterval(updateGame, 5500);
+                    </script>");
 
                 RecommendedGamesLiteral.Text = html.ToString();
             }
